@@ -1,0 +1,146 @@
+\section{SMART goal 2: tool decision}
+
+As part of SMART Goal 2, the DQM team was followed during its evaluation of a suitable tool for \gls{DQM}. This work took place in parallel with SMART Goal 1. For the project team, this goal served to identify the tool to be used in the subsequent master's thesis and allowed its capabilities to be evaluated directly within SMART Goal 3.
+
+
+
+\subsection*{Tool evaluation}
+
+While the previous research \cite{Roccaro2026_Project1} described a \gls{DQM} tool being developed, other initiatives at Swiss Post were evaluating a company-wide solution. First, the tool selection process for the company as a whole is examined, followed by the \gls{DWH}-specific solution.
+
+
+
+\subsection*{Tool Selection for Swiss Post}
+
+However, for Swiss Post as a whole, the tool developed for the DWH was considered too specialised. The main considerations against this initiative were:
+
+\begin{itemize}
+    \item The DWH initiative was considered too specialised for its use case and therefore not suitable for company-wide deployment.
+    \item The developed tool did not address the broader system landscape of Swiss Post.
+    \item The evaluation followed the principle of \textit{buy before build}, favouring solutions available on the market rather than developing specialised tools that are difficult to maintain.
+    \item Support for SAP data sources was a key requirement, as they contain critical accounting-related data with a high potential impact in the event of data loss.
+\end{itemize}
+
+This led to the evaluation of tools available on the market. These included Soda, Informatica, Collate, and Atacamma.
+
+
+
+\subsection{Soda.io}
+As a first possible provider, Soda.io was selected and followed by the project team throughout its evaluation \cite{Soda2026}. It is a comparatively young member of the \gls{DQM} market. In the following sections, the evaluation of this tool is presented. The company focuses on ease of use, rapid deployment, and modern cloud-based solutions.
+
+
+
+\subsubsection*{Demo}
+
+One of these demonstrations was provided by \cite{Soda2026}, which was invited by Swiss Post to present its data quality management solution. The demonstration included the following participants:
+
+\begin{itemize}
+    \item Date and time: March 17, 2026, from 11:00 to 12:00 CET (Microsoft Teams online demonstration).
+    \item Bruno Huys (\texttt{bruno.huys@soda.io}), organizer of the meeting and representative of Soda.
+    \item Arthur Chionh (\texttt{arthur.chionh@soda.io}), introduced by Bruno Huys as his colleague and representative of Soda.
+\end{itemize}
+
+
+\begin{itemize}
+    \item Machine learning supports the identification of fluctuations, which are visualised as graphs.
+    \item A no-code interface allowing the business to define rules.
+    \item Rules can be defined using sliders to specify acceptable and failure ranges.
+    \item An LLM chatbot allowing the definition of rules and data contracts.
+    \item Data contracts: a schema defined at column level according to client-specific definitions.
+    \item Support for row-level checks.
+    \item Detection of missing master data links.
+    \item On failure of a data check, queries are executed automatically to help identify the missing data.
+\end{itemize}
+
+
+
+\subsubsection*{Decision}
+
+Already two days later, on March 19, 2026, the decision regarding the tool was communicated by the Data Governance Expert of the \gls{DQM} team. The tool did not provide direct support for SAP data, which was considered an essential requirement. Therefore, it was rejected, and the evaluation continued.
+
+The following internal message describes the reasoning:
+
+\begin{quote}
+\textit{Hi everyone,}
+ 
+\textit{I wanted to share a quick update on our data quality tool evaluation process.}
+ 
+\textit{After reviewing the recent demo of Soda and considering our requirements, we have decided not to continue with this particular vendor. The main reason is the lack of a direct connection to SAP data, which is a critical component of our data landscape.}
+ 
+\textit{We will instead proceed with the remaining vendors (Collate, Informatica and Ataccama) and continue our evaluation process with them.}
+ 
+\textit{Thank you all for your participation and valuable input so far. I’ll keep you updated on the next steps.}
+ 
+
+\textit{Best regards}
+\end{quote}
+
+
+
+\subsection*{Tool Selection for DWH}
+
+The \gls{DWHLSOPS} team continued its work together with the platform team as defined in the KPIs of the AWS modernisation initiative. As this initiative was launched by the DWH team, its requirements were the main driver of the development. During the course of this project, the tool developed from \gls{PoC} status to being capable of running initial tests and subsequently being configured to validate real data.
+
+
+
+
+\subsection*{DQM Platform Tool}
+
+After continued work by the AWS modernisation team together with the platform team, the \gls{DQM} platform was ready. During a meeting, the current state was presented to the project team. The following excerpts are taken from the meeting minutes:
+
+
+
+\begin{quote}
+\textit{Meeting on: 18.05.2026}
+
+\textit{Participants: DQM team and project team}
+
+\textit{The rule-based DQM platform is ready for testing by the business.}
+
+\textit{The use case checking the master data for missing links has been implemented.}
+
+\textit{Checks are run on a schedule, and the results are saved to Amazon S3 in the DWH account.}
+
+\textit{The results can be queried using \gls{athena}.}
+
+\textit{A visual report should be created using Power BI.}
+
+\textit{Ownership should now be assigned for the checks and the data.}
+
+\textit{It should be investigated why the data are only available in one account, as they should also be available in another AWS account.}
+\end{quote}
+
+
+
+\subsection*{Discussion with Solution Architect}
+
+During discussions with the designated solution architect of \gls{DWHLSOPS}, possible approaches for continuing the project were evaluated. This meeting took place after the decision to pursue different tools for the DWH and for Swiss Post as a whole had been announced. The meeting is summarised below using excerpts from the meeting minutes:
+
+\begin{quote}
+\textit{Participants: DWH solution architect and project team}
+
+\textit{The Swiss Post-wide DQM solution will not be based on the DWH solution.}
+
+\textit{The purpose of the meeting was to determine which tool the project team should use.}
+
+\textit{The solution architect referred to KPI 1, Monitoring, from the AWS modernisation initiative.}
+
+\textit{The goal of this KPI was to provide monitoring capabilities for jobs such as AWS Glue jobs, which are widely used for ETL processing, including information about their uptime and execution time.}
+
+\textit{However, the monitoring functionality had been extended to also support data quality checks and data counts.}
+
+\textit{The next task assigned was to check the status of the data quality checks together with the AWS modernisation team.}
+
+\textit{Create a data quality check and test the functionality.}
+
+\textit{Acquire as much knowledge as possible before the end of the initiative, when the consultants and their expertise will no longer be available.}
+\end{quote}
+
+
+
+
+\subsection*{Conclusion}
+
+On 1 June 2026, the conclusion of the tool evaluation was communicated. The rule-based \gls{DQM} platform developed by the platform team was selected for use within the \gls{DWHLSOPS} environment. For Swiss Post as a whole, a different tool would continue to be evaluated.
+
+Consequently, the weekly coordination meetings of the \gls{DQM} team were cancelled. Furthermore, the monitoring functionality developed as part of the AWS modernisation initiative was selected as the tool to be evaluated in SMART Goal 3.

@@ -1,0 +1,181 @@
+\section{SMART goal 3: test of DQM tooling}
+
+This SMART goal follows the testing of the designated \gls{DQM} tool, with which a use case leading towards the master thesis can be implemented. The use case was defined during a discussion with the solution architect, as described in the previous section. It uses one of the deliverables of the AWS modernisation initiative, namely a monitoring solution for jobs. However, the monitoring solution was also designed in such a way that it allows selected data to be checked. As this functionality had only been developed in a basic form, it first had to be confirmed that it was suitable for performing the checks required during the master's thesis.
+
+
+
+\subsection*{Knowledge transfer sessions}
+
+As the AWS modernisation team was developing this functionality, knowledge transfer sessions were held to show the \gls{DWHLSOPS} team how to use it. Furthermore, extensive documentation was written describing the interaction between the different \gls{awsService}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/AWS_Monitoring_Architecture.png}
+    \caption{AWS monitoring architecture showing the extraction, normalisation, and dashboarding pipeline implemented using AWS services}
+    \label{fig:aws_monitoring_architecture}
+\end{figure}
+
+
+
+\subsection*{First step: design a measurable use case}
+
+First, a measurable use case had to be identified. Based on the DQM test and the dashboard created in SMART Goal 1, the daily event count was selected as the example. The existing basic monitoring code was able to perform a row count. However, the query used for the dashboard returned daily counts per sorting centre. For testing purposes, the existing monitoring code had to be used. Therefore, the SQL query had to be adapted so that, instead of returning counts per sorting centre, it returned the number of events for a defined sorting centre and date.
+
+
+
+\section{Testing and the view required for it}
+
+The first attempt was to return all applicable events while removing only the daily counts from the query. As this resulted in time-outs in \gls{athena}, the query had to be redesigned. Consequently, several attempts were made to reduce the amount of data processed. This process continued until only a single event was checked. The resulting query after this initial testing can be found in Appendix \ref{newMonitoringDQMquery}. As with the previous view queries, this query also had to be committed to the corresponding GitHub repository. The following shows a short part of the query, showing the submitted event that is extracted but not counted in the view.
+
+\begin{lstlisting}[style=sqlstyle]
+
+
+, mp_submitted_raw AS (
+   SELECT
+     CAST(DATE_ADD('hour', -6, submitted.timestamp AT TIME ZONE 'Europe/Zurich') AS DATE) Posttag
+   , submitted.sortingunit.locationKey locationKey
+   , submitted.sortingProcess sortingProcess
+   FROM
+     curated_lsops.mailpiece_submitted_v2
+) 
+, mp_submitted AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey = 'HRK') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN ((locationKey = 'VET') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN ((locationKey = 'CAD') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN ((locationKey = 'WAL') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN ((locationKey = 'UTZ') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN ((locationKey = 'PRA') AND (sortingProcess = 'AUTOMATIC')) THEN 1 
+   WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 
+   WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 
+   ELSE 0 END) relevant_submitted
+   FROM
+     mp_submitted_raw
+) 
+
+\end{lstlisting}
+
+
+
+
+
+\subsection*{Creating New Resources}
+
+Another process defined at Swiss Post for AWS is that resources such as a CloudWatch metric stream cannot be created directly in the AWS Console. Instead, all such resources have to be defined in Terraform. At Swiss Post, \gls{terraform} is the designated infrastructure-as-code solution. It is used to define, deploy, destroy, and manage AWS resources through configuration files. Furthermore, each AWS account has its own GitHub repository in which the Terraform files are stored. The following illustration shows the functioning of \gls{terraform} in a nutshell \cite{TerraformVisualIntro}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/Teraform_visual.png}
+    \caption{Visual overview of the Terraform workflow illustrating the relationship between configuration files, the Terraform state, providers, and the target infrastructure (adapted from \cite{TerraformVisualIntro}).}
+    \label{fig:terraform_visual_workflow}
+\end{figure}
+
+As defined in the code, the Terraform locals specify which queries are executed and with which parameters. The following excerpt shows the query together with its \texttt{WHERE} parameters, while the full code can be found in Appendix \ref{FullTestingTeraformMonitoringCode}.
+
+\begin{lstlisting}[
+  style=terraformstyle,
+  caption={Excerpt of the Terraform configuration defining scheduled data quality monitoring queries},
+  label={lst:terraform_dqm_locals_main}
+]
+locals {
+  curated_lsops = {
+    schedule_expression = "cron(0/15 * * * ? *)"
+
+    queries = [
+      {
+        table = "sendungsverarbeitung_dqm_starschema_no_aggregation_small_v"
+
+        where_clause = [
+          {
+            column    = "locationKey"
+            operation = "="
+            value     = "HRK"
+          },
+          {
+            column    = "relevant_submitted"
+            operation = "="
+            value     = 1
+          }
+        ]
+      },
+      {
+        table = "curated_lsops_submitted_dqm"
+      }
+    ]
+  }
+}
+\end{lstlisting}
+
+
+\subsection*{Code execution testing}
+
+After the resources had been created using Terraform, the code execution could be tested manually. This was done by logging into the \gls{awsConsole}, selecting the correct AWS account, and then opening \gls{awsEventBridge}. The newly created schedule shows the payload required for the next testing step. The payload is shown at the bottom of the following screen, followed by the detailed JSON code extracted and copied as the input for the linked \gls{awsLambda}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/Amazon_EventBridge_Detail.png}
+    \caption{Amazon EventBridge console showing the scheduled monitoring rule and the corresponding JSON event payload configuration}
+    \label{fig:amazon_eventbridge_detail}
+\end{figure}
+
+
+
+\begin{lstlisting}[language=json,
+caption={AWS EventBridge event payload used to trigger the data quality monitoring workflow},
+label={lst:eventbridge_payload}]
+{
+  "database": "curated_lsops",
+  "queries": [
+    {
+      "table": "sendungsverarbeitung_dqm_starschema_no_aggregation_small_v",
+      "where_clause": [
+        {
+          "column": "locationKey",
+          "operation": "=",
+          "value": "HRK"
+        },
+        {
+          "column": "relevant_submitted",
+          "operation": "=",
+          "value": 1
+        },
+        {
+          "column": "Posttag",
+          "operation": "=",
+          "value": "current_date - interval '35' day"
+        }
+      ]
+    },
+    {
+      "table": "curated_lsops_submitted_daily_dqm"
+    }
+  ]
+}
+\end{lstlisting}
+
+
+
+After the execution of the Lambda, an execution error was observed, as shown below. After investigating this error, it became clear that the condition injected into the SQL query by the team was not valid. The underlying data monitoring code automatically modified the SQL condition for checking the previous 35 days by escaping parts of the query, causing the SQL statement to be executed incorrectly. After discussions with the AWS modernisation team, this bug was addressed by the consultants.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/AWS_Lambda_debugg_info.png}
+    \caption{AWS Lambda execution details showing debug information after a failed execution of the data quality monitoring function}
+    \label{fig:aws_lambda_debug_info}
+\end{figure}
+
+
+
+After they resolved the bug, the data monitoring setup allowed a date range to be entered for the count, as seen in the following figure. With this fix, the feasibility of DQM checks based on row counts using the monitoring setup was proven.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/AWS_Monitoring_Improvements.png}
+    \caption{Successful execution of the monitoring workflow after correcting the configuration, showing the validated monitoring metrics being forwarded to the AWS monitoring pipeline}
+    \label{fig:aws_monitoring_improvements}
+\end{figure}
+

@@ -1,0 +1,54 @@
+\section{SMART goal 1: Setup of an improved data quality report}
+\subsection*{Goal definition}
+\textbf{1) Setup of an improved data quality report}
+    
+\textbf{WHY:} This will help the team to run the daily checks faster
+
+By the end of the implementation phase, the existing data quality report is to be updated to use the new infrastructure. This includes new reporting data pipelines and the new structure using star shema. Also, Power BI is to be used.
+
+Success is measured by user feedback which has to be retrieved by \gls{ASTV} team. The feedback is to be implemented and the report must be on the productive systems.
+
+
+
+
+
+\subsection*{Core results}
+
+\begin{itemize}
+    
+\item \textbf{Update of data source:} In the implementation chapter, the data source for the third-party checks was moved from being stored on a shared drive to being stored on SharePoint, with synchronisation to \gls{AWSS3}. As a result, the data are versioned and available for other uses.
+
+\item \textbf{Power BI Setup:} At the beginning of the implementation chapter, the setup of Power BI was performed. It used the existing guides of Swiss Post and, in turn, allowed the development of the new improved \gls{DQM} report to begin.
+
+\item \textbf{Model data setup:} The data setup carried out throughout the first section of the implementation chapter established a model that was extendable and allowed filters to be applied to all the data.
+
+\item \textbf{New visuals to support faster interpretation by stakeholders:} The new visuals developed allowed three things. They enabled a fast visual check that the data were correct across the four comparisons performed. They also allowed changes to be viewed over time using the line chart, and finally, the table containing the data allowed the detailed checks per day and location to be confirmed.
+
+\item \textbf{Scrum review and post-review feedback:} The Scrum review presented the report to the whole \gls{ASTV} team and was a valuable means of obtaining feedback. Further feedback was gathered in separate meetings and subsequently applied, resulting in the final version of the report being brought into the production environment.
+
+\item \textbf{New Athena view and applied DevOps:} During the implementation of the report in Power BI, a separate view was set up in Athena. This new view allowed the new data sources to be used while the old view remained unchanged. This improved not only the performance of the view but also ensured that the two were not entangled. In addition, the DevOps deployment process at Swiss Post was described and applied for the deployment of this new view.
+\end{itemize}
+
+
+
+\subsection*{Supporting Results}
+
+The following results support the later implementation steps:
+
+\begin{itemize}
+    \item In the solution landscape chapter, the definition of Power BI as the new reporting environment was established. Furthermore, the change from a wide table to a star schema was established.
+
+    \item In the solution architecture, the metrics are reflected in the definitions of the relevant submitted and discharged events, as described in Sections \ref{SolutionSubmittedEvent} and \ref{SolutionDischargedEvent}.
+\end{itemize}
+
+\subsection*{What Was Not Achieved?}
+
+All objectives were fulfilled.
+
+\subsection*{Goal Verdict}
+
+This goal was completely fulfilled. The report has been implemented, including the application of stakeholder feedback.
+
+\subsection*{Learning and Outlook for Future Work}
+
+The importance of running checks between different environments from the first day of development became apparent. This was due to the issues that occurred with the different Power BI environments. Furthermore, it is important to obtain stakeholder feedback as early as possible and to plan enough time for implementing their requests.

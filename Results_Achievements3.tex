@@ -1,0 +1,47 @@
+\section{SMART goal 3: Validation of the Selected DQM Tool}
+\subsection*{Goal definition}
+\textbf{3) Validation of the Selected DQM Tool}
+    
+\textbf{WHY:} The DQM platform must be tested for applicability to the master thesis.
+
+By the end of the implementation phase, the DQM tool has to be tested for applicability to the master thesis. It must be proven that the required infrastructure can be set up for a test. Furthermore, a simplified test has to be run to confirm that the tool can handle the data sources.
+
+Success is measured by having the DQM tool tested. The tool must return the test values to prove that it can be used for the follow-up master thesis.
+
+
+
+\subsection*{Core Results}
+
+\begin{itemize}
+    
+\item \textbf{Knowledge transfer sessions:} The knowledge transfer sessions took place through extensive documentation in Confluence. Additionally, the consultants who developed the solution provided online sessions during which the functioning of the monitoring tool was described.
+
+\item \textbf{Design of a measurable use case:} The setup of a measurable use case was a key step towards testing the tool. The test was set up based on the existing query and therefore only had to be changed to fit the requirements.
+
+\item \textbf{Testing and creating a view for testing:} The new view was designed to have a good response time. This required multiple redesigns of the query, which was ultimately shortened so that it only contained one event being checked for one sorting centre.
+
+\item \textbf{Creating new resources:} While testing the tool, new resources had to be created. These were created using Terraform scripts, which are the Swiss Post standard for managing infrastructure as code.
+
+\item \textbf{Code execution testing:} The code testing led to the discovery of an error in the tool and how it handled date conditions. This was reported to the AWS Modernisation team, which in turn fixed the bug. This led to the successful execution of the code and the retrieval of results by the monitoring software setup.
+\end{itemize}
+
+
+\subsection*{Supporting Results}
+
+\begin{itemize}
+\item \textbf{DQM tool testing:} The basis for planning the test was described in the solution architecture. The main steps are knowledge buildup, tool testing, and test design.
+\end{itemize}
+
+\subsection*{What Was Not Achieved?}
+
+The goal was completely fulfilled; nothing was left unachieved.
+
+\subsection*{Goal Verdict}
+
+This goal was successfully achieved using the given use case. Thus, the master thesis can use this tool as a basis for entering the topic.
+
+
+
+\subsection*{Learning and Outlook for Future Work}
+
+An important lesson learned here is the importance of early meetings with the developers of new tools. In the case of AWS Modernisation, the developers were only available until before the end of this project's timeline, so meetings had to be reserved early. Also important was early testing, which led to the discovery of a bug that was in turn fixed by the consultants rather than having to be debugged and fixed later by the project team. Furthermore, the importance of allowing enough time for the setup of the infrastructure must be taken into account during planning.

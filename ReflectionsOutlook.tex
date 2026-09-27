@@ -1,0 +1,79 @@
+\chapter{Reflection and outlook}
+
+
+This reflection chapter concludes the second step in the epic quest of the academic team's towards improving data quality and data availability at Swiss Post. It evaluates the project with regard to methodology, content, and personal learnings, and concludes with an outlook on how the project can be followed up.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./content/img/ProjectManagement/LordsOfDQM.png}
+    \caption{Reflections with the lords of DQM}
+    \label{fig:reflection_lords_of_dqm}
+\end{figure}
+
+
+
+\section{Methodological reflection}
+
+In this section, the methodology is reflected upon. This is not limited to the project management methodology but considers all methods applied throughout the project.
+
+\subsection*{What went well}
+
+The following list of items went well, including the reasons why they went well.
+
+\begin{itemize}
+    \item \textbf{Documentation using Miro}: The documentation of the project in Miro went well. The tool proved very useful for taking notes quickly, which were incorporated into the document later. It was also used for project management and is a key information resource for the entire project.
+    \item \textbf{Weekly meetings, Jour Fixe}: The Jour Fixe, as documented in Miro, was held weekly. It proved to be a valuable exchange and helped guide the work and larger tasks. Its documentation on paper was uploaded to Miro, which helped keep track of discussed and important decisions.
+    \item \textbf{Weekly meeting structure}: The meeting structure, starting with an introduction to the topic, the deliverables worked on, and a milestone status update, helped to structure the meetings and eased the start of another session after one week. Furthermore, the predefined questions helped to keep the discussion focused on the important topics. The deliverables graphic, together with the broad description of discharged and submitted items on Miro, supported this.
+    \item \textbf{Regular efforts}: Splitting the work between the project work and work in the \gls{DWHLSOPS} team went smoothly. By not having explicitly defined days set per topic, the management was easier, as no blockers were overbooked, leading to further issues. This led to more frequent work on the study project.
+    \item \textbf{Milestone structuring}: The milestones helped to keep the time effort per chapter structured. They helped to stop basic research at the right moment and to move towards the solution landscape and implementation.
+    \item \textbf{Writing mode}: The writing mode, with corrections using ChatGPT based on a defined prompt, went well after it was defined. It helped to iron out earlier occurrences of non-academic writing and grammatical issues.
+    \item \textbf{Kanban}: The Kanban board helped to keep track of tasks. While its usage can still be improved, noting important decisions as tasks helped to keep track of them.
+\end{itemize}
+
+
+
+\subsection*{What did not go well}
+
+\begin{itemize}
+    \item \textbf{Writing time slot}: The planned time slot for the writing efforts proved to be problematic. Even though the effort was lower, as many topics were already defined from the previous work, writing most of the project at the end was not optimal. Screenshots and documentation had to be searched for with additional effort rather than having the proper screenshots and citations available right away.
+    \item \textbf{Goals that overstep responsibilities}: With SMART Goal 2, the project team overstepped their \gls{AKV}. This is a German abbreviation: \textbf{A}ufgaben (tasks), \textbf{K}ompetenzen (authority or decision-making rights), and \textbf{V}erantwortung (responsibility or accountability). As the \gls{DQM} team was responsible for deciding on and selecting a tool, the project team was overstepping these boundaries.
+\end{itemize}
+
+\section{Content-related learnings}
+% Was habe ich über DQM, DA, Lineage, Organisation gelernt?
+
+\begin{itemize}
+    \item \textbf{Data quality as an organisational challenge}: The complexity of Swiss Post makes the search for a DQM tool an organisational challenge. This is due to there being multiple teams and divisions with different data and therefore different needs. The challenge, in turn, is to find tools that can satisfy multiple requirements, leading to trade-offs, as not all requirements can be fulfilled. This can then lead to a tool being selected that is rejected by parts of the organisation, as it may lack key features.
+
+    \item \textbf{Data provisioning}: Even before any reporting is done on data, the provisioning of data proved to be a major challenge. As seen in the case of the star schema changes, the structure of data is in constant change. Similar issues were observed with CSV data being stored on shared folders without versioning, which was moved to a SharePoint interface to \gls{AWSS3}.
+    \item \textbf{The role in a complex company environment}: Swiss Post has a large IT infrastructure that is managed by multiple teams with different responsibilities. Those responsibilities need to be taken into account when setting up work goals in order not to overstep \gls{AKV}.
+\end{itemize}
+
+
+
+
+\section{Personal learnings}
+
+In the course of this work, the author has learned many things; the following list summarises the most important learnings and their expected impact on future work.
+
+\begin{itemize}
+    \item \textbf{Respect organisational responsibilities and governance (AKV)}: When setting up SMART Goals and subsequent tasks, take into account the organisational structure. The task of following the decision process for the DQM tool was outside the scope of the project team's responsibilities, as other teams had the skills and designated task to perform it. As a learning, the goals should be discussed in more detail, especially regarding what the project team's contribution will be.
+    \item \textbf{Validation with a simplified use case}: Setting up a simplified use case together with the knowledge transfer when a tool has just been developed proved to be very useful. It allows all required languages and tasks to be learned for implementing a use case, such as the setup of the infrastructure and the language required to define new tests.
+    \item \textbf{Enterprise software procurement takes time}: Following the DQM team during the selection of a DQM tool proved to be much more complex than initially expected. The decision for a tool has to match multiple requirements of different teams and divisions. Furthermore, the decision-making process took more time than expected due to delays, especially related to two initiatives being run in parallel for a specific team and the whole organisation.
+    \item \textbf{Usefulness of direct feedback from the team}: After presenting the new data quality report in Power BI, valuable input was provided by the team that helped to implement the functionalities quickly, as guidance on the implementation was also provided along with the requirements.
+    \item \textbf{Usefulness of architectural input}: Discussions with the team's solution architect proved valuable, as guidance was provided to evaluate the monitoring software. This led to the identification of the tool, which was subsequently tested for applicability in the use case covered by SMART Goal 3 and will form part of the master thesis.
+    \item \textbf{Start the writing earlier}: The writing process was started early with the definition of the basic structure, which was similar to the previous research. However, the writing itself was still performed after all the implementation. Starting the writing process earlier would shift research activities that occur during writing to an earlier stage. Having the chapters on which the implementation is based available earlier also allows the work to be structured more effectively.
+\end{itemize}
+
+
+
+\section{Outlook after the project and its follow-up}
+
+The project provided major steps towards the master thesis. In addition to the work described in the document, work also happened outside the research path with the definition of the broader use case and the search for an expert who can support the use case with the required expertise. This work is shown exemplarily in the Miro section specific to these tasks:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./content/img/MiroBoard_MasterThesis_Planning.png}
+    \caption{Extract of the Miro board illustrating the planning of the subsequent master's thesis. The section documents initial ideas, work packages, dependencies, and planning considerations that emerged during Project~2 and served as preparation for the continuation of the research.}
+    \label{fig:annex_miro_masterthesis}
+\end{figure}

@@ -1,0 +1,1540 @@
+\glsdefs@newdocentry{PoC}%
+{%
+name={Proof of concept (POC)},%
+sort={Proof of concept (POC)},%
+type={main},%
+first={PoC},%
+firstplural={PoCs},%
+text={PoC},%
+plural={PoCs},%
+description={Proof of concept (POC), also known as proof of principle, is a realization of a certain method or idea in order to demonstrate its feasibility, or a demonstration in principle with the aim of verifying that some concept or theory has practical potential. A proof of concept is usually small and may or may not be complete},%
+descriptionplural={Proof of concept (POC), also known as proof of principle, is a realization of a certain method or idea in order to demonstrate its feasibility, or a demonstration in principle with the aim of verifying that some concept or theory has practical potential. A proof of concept is usually small and may or may not be complete},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DQ}%
+{%
+name={Data Quality (DQ)},%
+sort={Data Quality (DQ)},%
+type={main},%
+first={data quality},%
+firstplural={data qualitys},%
+text={data quality},%
+plural={data qualitys},%
+description={Data quality refers to the state of qualitative or quantitative pieces of information. There are many definitions of data quality, but data is generally considered high quality if it is "fit for [its] intended uses in operations, decision making and planning". Data is deemed of high quality if it correctly represents the real-world construct to which it refers. Apart from these definitions, as the number of data sources increases, the question of internal data consistency becomes significant, regardless of fitness for use for any particular external purpose.},%
+descriptionplural={Data quality refers to the state of qualitative or quantitative pieces of information. There are many definitions of data quality, but data is generally considered high quality if it is "fit for [its] intended uses in operations, decision making and planning". Data is deemed of high quality if it correctly represents the real-world construct to which it refers. Apart from these definitions, as the number of data sources increases, the question of internal data consistency becomes significant, regardless of fitness for use for any particular external purpose.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DA}%
+{%
+name={Data Availability (DA)},%
+sort={Data Availability (DA)},%
+type={main},%
+first={data availability},%
+firstplural={data availabilitys},%
+text={data availability},%
+plural={data availabilitys},%
+description={Data availability, in the context of this document, refers to whether the data is accessible e.g. whether a report can be retrieved and used when needed.},%
+descriptionplural={Data availability, in the context of this document, refers to whether the data is accessible e.g. whether a report can be retrieved and used when needed.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{BizDevOps}%
+{%
+name={BizDevOps},%
+sort={BizDevOps},%
+type={main},%
+first={BizDevOps},%
+firstplural={BizDevOpss},%
+text={BizDevOps},%
+plural={BizDevOpss},%
+description={BizDevOps extends DevOps by including the business side. In this constellation, the business becomes part of the team. This setup improves communication between developers and the people requesting the work.},%
+descriptionplural={BizDevOps extends DevOps by including the business side. In this constellation, the business becomes part of the team. This setup improves communication between developers and the people requesting the work.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ASTV}%
+{%
+name={ASTV},%
+sort={ASTV},%
+type={main},%
+first={ASTV},%
+firstplural={ASTVs},%
+text={ASTV},%
+plural={ASTVs},%
+description={An abbreviation used at Swiss Post within the postal services. It is an acronym for the German terms: “Aufgabe” –> Receiving, “Sortierung” –> Sorting, “Transport” –> Transport, “Verzollung” –> Customs clearance. This abbreviation encompasses the entire postal process, except for the delivery step.},%
+descriptionplural={An abbreviation used at Swiss Post within the postal services. It is an acronym for the German terms: “Aufgabe” –> Receiving, “Sortierung” –> Sorting, “Transport” –> Transport, “Verzollung” –> Customs clearance. This abbreviation encompasses the entire postal process, except for the delivery step.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ASTVZ}%
+{%
+name={ASTVZ},%
+sort={ASTVZ},%
+type={main},%
+first={ASTVZ},%
+firstplural={ASTVZs},%
+text={ASTVZ},%
+plural={ASTVZs},%
+description={An abbreviation used at Swiss Post within the postal services. It is an acronym for the German terms: “Aufgabe” → Receiving, “Sortierung” → Sorting, “Transport” → Transport, “Verzollung” → Customs clearance, and “Zustellung” → Delivery. This abbreviation encompasses the entire postal process, from receiving a mail piece until it is delivered.},%
+descriptionplural={An abbreviation used at Swiss Post within the postal services. It is an acronym for the German terms: “Aufgabe” → Receiving, “Sortierung” → Sorting, “Transport” → Transport, “Verzollung” → Customs clearance, and “Zustellung” → Delivery. This abbreviation encompasses the entire postal process, from receiving a mail piece until it is delivered.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DandF}%
+{%
+name={D \& F, Delivery and Finance},%
+sort={D \& F, Delivery and Finance},%
+type={main},%
+first={D \& F},%
+firstplural={D \& Fs},%
+text={D \& F},%
+plural={D \& Fs},%
+description={The Delivery and Finance team is a BizDevOps team in DWH LS OPS handling requirements related to delivery and finance, including regional controlling and process controlling.},%
+descriptionplural={The Delivery and Finance team is a BizDevOps team in DWH LS OPS handling requirements related to delivery and finance, including regional controlling and process controlling.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{MPP}%
+{%
+name={MPP Mengenplanung und Prognose Pakete},%
+sort={MPP Mengenplanung und Prognose Pakete},%
+type={main},%
+first={MPP},%
+firstplural={MPPs},%
+text={MPP},%
+plural={MPPs},%
+description={MPP Parcel Volume Planning and Forecasting is a team within Swiss Post. It is responsible for improving current planning and forecasting methods. Based on this information, important decisions are made, such as determining the personnel required for peak periods like the Christmas season with increased parcel volumes. The team analyses current data sources and aims to provide more precise methods and data sources for the process.},%
+descriptionplural={MPP Parcel Volume Planning and Forecasting is a team within Swiss Post. It is responsible for improving current planning and forecasting methods. Based on this information, important decisions are made, such as determining the personnel required for peak periods like the Christmas season with increased parcel volumes. The team analyses current data sources and aims to provide more precise methods and data sources for the process.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DWHLSOPS}%
+{%
+name={DWH LS OPS},%
+sort={DWH LS OPS},%
+type={main},%
+first={DWH LS OPS},%
+firstplural={DWH LS OPSs},%
+text={DWH LS OPS},%
+plural={DWH LS OPSs},%
+description={A Swiss post abreviation, DWH -> "Data Warehouse", LS -> "Logistic Services", OPS -> "Operations". Together, this refers to the Data Warehouse that supports and manages the operational processes of the postal logistics services.},%
+descriptionplural={A Swiss post abreviation, DWH -> "Data Warehouse", LS -> "Logistic Services", OPS -> "Operations". Together, this refers to the Data Warehouse that supports and manages the operational processes of the postal logistics services.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{SmartGoals}%
+{%
+name={Smart Goals},%
+sort={Smart Goals},%
+type={main},%
+first={SmartGoals},%
+firstplural={SmartGoalss},%
+text={SmartGoals},%
+plural={SmartGoalss},%
+description={S.M.A.R.T. (or SMART) is an acronym used as a mnemonic device to establish criteria for effective goal-setting and objective development. The S.M.A.R.T. criteria he proposes are as follows: Specific: Targeting a particular area for improvement, Measurable: Quantifying, or at least suggesting, an indicator of progress, Assignable: Defining responsibility clearly, Realistic: Outlining attainable results with available resources, Time-related: Including a timeline for expected results},%
+descriptionplural={S.M.A.R.T. (or SMART) is an acronym used as a mnemonic device to establish criteria for effective goal-setting and objective development. The S.M.A.R.T. criteria he proposes are as follows: Specific: Targeting a particular area for improvement, Measurable: Quantifying, or at least suggesting, an indicator of progress, Assignable: Defining responsibility clearly, Realistic: Outlining attainable results with available resources, Time-related: Including a timeline for expected results},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{riskappetite}%
+{%
+name={Risk Appetite},%
+sort={Risk Appetite},%
+type={main},%
+first={risk appetite},%
+firstplural={risk appetites},%
+text={risk appetite},%
+plural={risk appetites},%
+description={Risk appetite is a term used in risk management. It describes an individual’s perception and tolerance of risk. Even when two people are facing the same risk, they may perceive its severity and probability differently, based on their personal risk appetite.},%
+descriptionplural={Risk appetite is a term used in risk management. It describes an individual’s perception and tolerance of risk. Even when two people are facing the same risk, they may perceive its severity and probability differently, based on their personal risk appetite.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{NRT}%
+{%
+name={Near Realtme},%
+sort={Near Realtme},%
+type={main},%
+first={near realtime},%
+firstplural={near realtimes},%
+text={near realtime},%
+plural={near realtimes},%
+description={Near Real Time (NRT) refers to data that becomes available for reporting almost immediately after the event occurs, but not instantly. The time window in which data is considered near real time can vary depending on the use case and the type of data. For example, NRT might mean that data is available within 5 minutes up to 1 hour after the event has happened.},%
+descriptionplural={Near Real Time (NRT) refers to data that becomes available for reporting almost immediately after the event occurs, but not instantly. The time window in which data is considered near real time can vary depending on the use case and the type of data. For example, NRT might mean that data is available within 5 minutes up to 1 hour after the event has happened.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{RealTime}%
+{%
+name={Real Time},%
+sort={Real Time},%
+type={main},%
+first={real time},%
+firstplural={real times},%
+text={real time},%
+plural={real times},%
+description={Real-time data (RTD) is information that is delivered immediately after collection. There is no delay in the timeliness of the information provided. Real-time data is often used for navigation or tracking.},%
+descriptionplural={Real-time data (RTD) is information that is delivered immediately after collection. There is no delay in the timeliness of the information provided. Real-time data is often used for navigation or tracking.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{KafkaTopics}%
+{%
+name={Kafka Topics},%
+sort={Kafka Topics},%
+type={main},%
+first={Kafka topics},%
+firstplural={Kafka topicss},%
+text={Kafka topics},%
+plural={Kafka topicss},%
+description={A Kafka topic is a core component of Apache Kafka. It is a named storage structure where producers write messages or data streams. The content of the topic can then be read and processed by consumers.},%
+descriptionplural={A Kafka topic is a core component of Apache Kafka. It is a named storage structure where producers write messages or data streams. The content of the topic can then be read and processed by consumers.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ETL}%
+{%
+name={ETL},%
+sort={ETL},%
+type={main},%
+first={ETL},%
+firstplural={ETLs},%
+text={ETL},%
+plural={ETLs},%
+description={Extract, transform, load (ETL) is a three-phase computing process where data is extracted from an input source, transformed (including cleaning), and loaded into an output data container.},%
+descriptionplural={Extract, transform, load (ETL) is a three-phase computing process where data is extracted from an input source, transformed (including cleaning), and loaded into an output data container.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{analyticalreporting}%
+{%
+name={Analytical Reporting},%
+sort={Analytical Reporting},%
+type={main},%
+first={analytical reporting},%
+firstplural={analytical reportings},%
+text={analytical reporting},%
+plural={analytical reportings},%
+description={Analytical Reporting is focusing on interpreting data. To be able to make management decisions over multiple days, weeks or months. It is fundamentally different to operational reporting which monitors the current status e.g. to check if machines are operating without errors.},%
+descriptionplural={Analytical Reporting is focusing on interpreting data. To be able to make management decisions over multiple days, weeks or months. It is fundamentally different to operational reporting which monitors the current status e.g. to check if machines are operating without errors.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sortingcenter}%
+{%
+name={Sorting Center},%
+sort={Sorting Center},%
+type={main},%
+first={sorting center},%
+firstplural={sorting centers},%
+text={sorting center},%
+plural={sorting centers},%
+description={In the postal services of Swiss Post, sorting centers are an essential part of the logistics process for handling letters and parcels. Items are first collected and sent to regional centralized facilities, where they are either: routed to sorting centers in other regions, or processed locally and dispatched to the distribution network of the current region. These centers enable efficient processing and routing of mail within Switzerland and across regions.},%
+descriptionplural={In the postal services of Swiss Post, sorting centers are an essential part of the logistics process for handling letters and parcels. Items are first collected and sent to regional centralized facilities, where they are either: routed to sorting centers in other regions, or processed locally and dispatched to the distribution network of the current region. These centers enable efficient processing and routing of mail within Switzerland and across regions.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{onetoonemigrations}%
+{%
+name={One to One Migrations},%
+sort={One to One Migrations},%
+type={main},%
+first={one-to-one migrations},%
+firstplural={one-to-one migrationss},%
+text={one-to-one migrations},%
+plural={one-to-one migrationss},%
+description={In the context of reporting, a one-to-one migration refers to rebuilding an existing report exactly as it is, but on a different software or hardware platform. The structure, logic, and content of the report remain unchanged only the underlying technology is replaced.},%
+descriptionplural={In the context of reporting, a one-to-one migration refers to rebuilding an existing report exactly as it is, but on a different software or hardware platform. The structure, logic, and content of the report remain unchanged only the underlying technology is replaced.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{greenfield}%
+{%
+name={Greenfield},%
+sort={Greenfield},%
+type={main},%
+first={greenfield},%
+firstplural={greenfields},%
+text={greenfield},%
+plural={greenfields},%
+description={A greenfield refers to a system landscape where no prior system exists. In IT, a greenfield project means that a new system is built from scratch, without having to consider or integrate with any existing legacy systems. Because there is no predecessor system, development can proceed more freely, without compatibility constraints — which often makes the implementation simpler and more flexible compared to a migration or redesign of an existing system (a brownfield).},%
+descriptionplural={A greenfield refers to a system landscape where no prior system exists. In IT, a greenfield project means that a new system is built from scratch, without having to consider or integrate with any existing legacy systems. Because there is no predecessor system, development can proceed more freely, without compatibility constraints — which often makes the implementation simpler and more flexible compared to a migration or redesign of an existing system (a brownfield).},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{MVP}%
+{%
+name={MVP},%
+sort={MVP},%
+type={main},%
+first={MVP},%
+firstplural={MVPs},%
+text={MVP},%
+plural={MVPs},%
+description={A Minimal Viable Product (MVP) is the simplest version of a system that successfully fulfils a specific use case. It is developed with just the core functionality needed to provide value to users. An MVP can serve two main purposes: to demonstrate that a concept or method is feasible (proof of concept), or as an initial implementation that will later be improved through further development and updates.},%
+descriptionplural={A Minimal Viable Product (MVP) is the simplest version of a system that successfully fulfils a specific use case. It is developed with just the core functionality needed to provide value to users. An MVP can serve two main purposes: to demonstrate that a concept or method is feasible (proof of concept), or as an initial implementation that will later be improved through further development and updates.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{highlevel}%
+{%
+name={High Level},%
+sort={High Level},%
+type={main},%
+first={high level},%
+firstplural={high levels},%
+text={high level},%
+plural={high levels},%
+description={High level refers to viewing a use case from a general or abstract perspective, rather than analyzing all details. It focuses on the overall picture instead of individual elements. Instead of examining every single event during a day, a high-level analysis would simply check whether most events fall within the expected range during that day},%
+descriptionplural={High level refers to viewing a use case from a general or abstract perspective, rather than analyzing all details. It focuses on the overall picture instead of individual elements. Instead of examining every single event during a day, a high-level analysis would simply check whether most events fall within the expected range during that day},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{infoblock}%
+{%
+name={Infoblock},%
+sort={Infoblock},%
+type={main},%
+first={infoblock},%
+firstplural={infoblocks},%
+text={infoblock},%
+plural={infoblocks},%
+description={An \emph {Infoblock} is a data product ready for reporting and analytical use cases. It consists of cleaned, deduplicated, curated data that is transformed into a consistent schema using business naming. It is available in the DWH and can be used for multiple analytical and reporting use cases. This concept is similar to data products as defined in modern data management practices.},%
+descriptionplural={An \emph {Infoblock} is a data product ready for reporting and analytical use cases. It consists of cleaned, deduplicated, curated data that is transformed into a consistent schema using business naming. It is available in the DWH and can be used for multiple analytical and reporting use cases. This concept is similar to data products as defined in modern data management practices.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{NDA}%
+{%
+name={NDA},%
+sort={NDA},%
+type={main},%
+first={NDA},%
+firstplural={NDAs},%
+text={NDA},%
+plural={NDAs},%
+description={A non-disclosure agreement (NDA), also known as a confidentiality agreement (CA), confidential disclosure agreement (CDA), proprietary information agreement (PIA) or secrecy agreement (SA), is a legal contract or part of a contract between at least two parties that outlines confidential material, knowledge, or information that the parties wish to share with one another for certain purposes, but wish to restrict access to},%
+descriptionplural={A non-disclosure agreement (NDA), also known as a confidentiality agreement (CA), confidential disclosure agreement (CDA), proprietary information agreement (PIA) or secrecy agreement (SA), is a legal contract or part of a contract between at least two parties that outlines confidential material, knowledge, or information that the parties wish to share with one another for certain purposes, but wish to restrict access to},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{IP}%
+{%
+name={IP},%
+sort={IP},%
+type={main},%
+first={IP},%
+firstplural={IPs},%
+text={IP},%
+plural={IPs},%
+description={Intellectual property (IP) is a category of property that includes intangible creations of the human intellect},%
+descriptionplural={Intellectual property (IP) is a category of property that includes intangible creations of the human intellect},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{SAC}%
+{%
+name={SAC, SAP Analytics Cloud},%
+sort={SAC, SAP Analytics Cloud},%
+type={main},%
+first={SAC},%
+firstplural={SACs},%
+text={SAC},%
+plural={SACs},%
+description={SAC, SAP Analytics Cloud is a plattform for online analytical reporting. It allows to show data in tables and dashboards and allows Reporting and predictive analysis.},%
+descriptionplural={SAC, SAP Analytics Cloud is a plattform for online analytical reporting. It allows to show data in tables and dashboards and allows Reporting and predictive analysis.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DSP}%
+{%
+name={DSP, SAP Datasphere},%
+sort={DSP, SAP Datasphere},%
+type={main},%
+first={DSP},%
+firstplural={DSPs},%
+text={DSP},%
+plural={DSPs},%
+description={DSP (SAP Datasphere) enables the creation of data models that integrate SAP and non-SAP data sources. These sources can include databases as well as Excel files. The data sources can then be further joined and aggregated.},%
+descriptionplural={DSP (SAP Datasphere) enables the creation of data models that integrate SAP and non-SAP data sources. These sources can include databases as well as Excel files. The data sources can then be further joined and aggregated.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{spark}%
+{%
+name={Apache Spark},%
+sort={Apache Spark},%
+type={main},%
+first={Spark},%
+firstplural={Sparks},%
+text={Spark},%
+plural={Sparks},%
+description={Apache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface for programming clusters with implicit data parallelism and fault tolerance.},%
+descriptionplural={Apache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface for programming clusters with implicit data parallelism and fault tolerance.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{aws}%
+{%
+name={Amazon Web Services, Inc. (AWS)},%
+sort={Amazon Web Services, Inc. (AWS)},%
+type={main},%
+first={Amazon Web Services (AWS)},%
+firstplural={Amazon Web Services (AWS)s},%
+text={Amazon Web Services (AWS)},%
+plural={Amazon Web Services (AWS)s},%
+description={Amazon Web Services, Inc. (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.},%
+descriptionplural={Amazon Web Services, Inc. (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{athena}%
+{%
+name={Athena},%
+sort={Athena},%
+type={main},%
+first={Athena},%
+firstplural={Athenas},%
+text={Athena},%
+plural={Athenas},%
+description={Amazon Athena runs interactive queries directly against data in Amazon S3.},%
+descriptionplural={Amazon Athena runs interactive queries directly against data in Amazon S3.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{datalineageview}%
+{%
+name={Data Lineage View},%
+sort={Data Lineage View},%
+type={main},%
+first={data lineage view},%
+firstplural={data lineage views},%
+text={data lineage view},%
+plural={data lineage views},%
+description={A visual representation in SAP DSP that displays which data sources are used and how they are connected. It shows joins and aggregations and allows users to navigate through a hierarchical tree structure to understand data flow, transformations, and dependencies.},%
+descriptionplural={A visual representation in SAP DSP that displays which data sources are used and how they are connected. It shows joins and aggregations and allows users to navigate through a hierarchical tree structure to understand data flow, transformations, and dependencies.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{analyticmodel}%
+{%
+name={Analytic Model},%
+sort={Analytic Model},%
+type={main},%
+first={Analytic Model},%
+firstplural={Analytic Models},%
+text={Analytic Model},%
+plural={Analytic Models},%
+description={A structured model in SAP DSP used as the foundation for reporting and analytics. It can consist of multiple data sources, joins between those sources, label transformations, and aggregations that prepare the data for analytical consumption.},%
+descriptionplural={A structured model in SAP DSP used as the foundation for reporting and analytics. It can consist of multiple data sources, joins between those sources, label transformations, and aggregations that prepare the data for analytical consumption.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{PO}%
+{%
+name={Product Owner (PO)},%
+sort={Product Owner (PO)},%
+type={main},%
+first={product owner (PO)},%
+firstplural={product owner (PO)s},%
+text={product owner (PO)},%
+plural={product owner (PO)s},%
+description={Each scrum team has one product owner. The product owner focuses on the business side of product development and spends the majority of time liaising with stakeholders and the team. The role is intended to primarily represent the product's stakeholders, the voice of the customer, or the desires of a committee, and bears responsibility for the delivery of business results.},%
+descriptionplural={Each scrum team has one product owner. The product owner focuses on the business side of product development and spends the majority of time liaising with stakeholders and the team. The role is intended to primarily represent the product's stakeholders, the voice of the customer, or the desires of a committee, and bears responsibility for the delivery of business results.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{postday}%
+{%
+name={Post day},%
+sort={Post day},%
+type={main},%
+first={post day},%
+firstplural={post days},%
+text={post day},%
+plural={post days},%
+description={The post day starts at 06:00 AM and lasts until 05:59 AM the next day. This is the essential date format used by Swiss Post for reporting.},%
+descriptionplural={The post day starts at 06:00 AM and lasts until 05:59 AM the next day. This is the essential date format used by Swiss Post for reporting.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{messageprocessing}%
+{%
+name={Message processing},%
+sort={Message processing},%
+type={main},%
+first={message processing},%
+firstplural={message processings},%
+text={message processing},%
+plural={message processings},%
+description={Sendungsverarbeitung is a central infoblock containing data from sorting systems. It allows mail pieces to be followed through the sorting process and enables various reports to be generated.},%
+descriptionplural={Sendungsverarbeitung is a central infoblock containing data from sorting systems. It allows mail pieces to be followed through the sorting process and enables various reports to be generated.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{curated}%
+{%
+name={Curated database layer},%
+sort={Curated database layer},%
+type={main},%
+first={curated},%
+firstplural={curateds},%
+text={curated},%
+plural={curateds},%
+description={The curated database layer is the first layer in the Swiss Post DWH setup in which data is cleaned and standardised and duplicates are removed. This occurs after the data is received in a raw format.},%
+descriptionplural={The curated database layer is the first layer in the Swiss Post DWH setup in which data is cleaned and standardised and duplicates are removed. This occurs after the data is received in a raw format.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{RX}%
+{%
+name={Rollbox (RX)},%
+sort={Rollbox (RX)},%
+type={main},%
+first={RX},%
+firstplural={RXs},%
+text={RX},%
+plural={RXs},%
+description={The rollbox (RX) is used to temporarily transport parcels throughout the Swiss Post workflow. It can hold many mail pieces and is used to move them between different processing areas, making it an essential component of parcel handling at Swiss Post.},%
+descriptionplural={The rollbox (RX) is used to temporarily transport parcels throughout the Swiss Post workflow. It can hold many mail pieces and is used to move them between different processing areas, making it an essential component of parcel handling at Swiss Post.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{principal}%
+{%
+name={Principal},%
+sort={Principal},%
+type={main},%
+first={principal},%
+firstplural={principals},%
+text={principal},%
+plural={principals},%
+description={The principal seniority level represents long-term experience in a professional role. A principal features extensive experience and domain knowledge and has a strategic influence across teams or systems. They will often define standards and lead in decision-making.},%
+descriptionplural={The principal seniority level represents long-term experience in a professional role. A principal features extensive experience and domain knowledge and has a strategic influence across teams or systems. They will often define standards and lead in decision-making.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{senioritylevel}%
+{%
+name={Seniority level},%
+sort={Seniority level},%
+type={main},%
+first={seniority level},%
+firstplural={seniority levels},%
+text={seniority level},%
+plural={seniority levels},%
+description={The seniority level describes the experience and responsibilities a worker has amassed in their current role. Seniority levels are used to distinguish between juniors, seniors, principals, and higher levels of experience.},%
+descriptionplural={The seniority level describes the experience and responsibilities a worker has amassed in their current role. Seniority levels are used to distinguish between juniors, seniors, principals, and higher levels of experience.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{IAM}%
+{%
+name={Identity and Access Management (IAM)},%
+sort={Identity and Access Management (IAM)},%
+type={main},%
+first={IAM},%
+firstplural={IAMs},%
+text={IAM},%
+plural={IAMs},%
+description={Identity and Access Management (IAM) is a system used to assign roles and permissions to users within large organisations. It allows permissions for office access, software usage, and permission levels in third-party software to be set up. It also consists of GUI and interfaces that allow assigning and controlling user permissions.},%
+descriptionplural={Identity and Access Management (IAM) is a system used to assign roles and permissions to users within large organisations. It allows permissions for office access, software usage, and permission levels in third-party software to be set up. It also consists of GUI and interfaces that allow assigning and controlling user permissions.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DQM}%
+{%
+name={Data Quality Management (DQM)},%
+sort={Data Quality Management (DQM)},%
+type={main},%
+first={DQM},%
+firstplural={DQMs},%
+text={DQM},%
+plural={DQMs},%
+description={Data quality management is the management of data quality topics. It describes how data quality is handled in a company. However, in this document, most references to DQM refer to the IT team working at Swiss Post on the DQM topic. This team is implementing defined software that is intended to promote improvements in data quality.},%
+descriptionplural={Data quality management is the management of data quality topics. It describes how data quality is handled in a company. However, in this document, most references to DQM refer to the IT team working at Swiss Post on the DQM topic. This team is implementing defined software that is intended to promote improvements in data quality.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{AWSS3}%
+{%
+name={AWS S3},%
+sort={AWS S3},%
+type={main},%
+first={AWS S3},%
+firstplural={AWS S3s},%
+text={AWS S3},%
+plural={AWS S3s},%
+description={Amazon Simple Storage Service (S3) is a service offered by Amazon Web Services (AWS) that provides object storage through a web service interface. Amazon S3 uses the same scalable storage infrastructure that Amazon.com uses to run its e-commerce network.},%
+descriptionplural={Amazon Simple Storage Service (S3) is a service offered by Amazon Web Services (AWS) that provides object storage through a web service interface. Amazon S3 uses the same scalable storage infrastructure that Amazon.com uses to run its e-commerce network.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{CTE}%
+{%
+name={CTE},%
+sort={CTE},%
+type={main},%
+first={CTE},%
+firstplural={CTEs},%
+text={CTE},%
+plural={CTEs},%
+description={A common table expression, or CTE, (in SQL) is a temporary named result set, derived from a simple query and defined within the execution scope of a SELECT, INSERT, UPDATE, or DELETE statement. CTEs can be thought of as alternatives to derived tables (subquery), views, and inline user-defined functions.},%
+descriptionplural={A common table expression, or CTE, (in SQL) is a temporary named result set, derived from a simple query and defined within the execution scope of a SELECT, INSERT, UPDATE, or DELETE statement. CTEs can be thought of as alternatives to derived tables (subquery), views, and inline user-defined functions.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DWH}%
+{%
+name={DWH},%
+sort={DWH},%
+type={main},%
+first={DWH},%
+firstplural={DWHs},%
+text={DWH},%
+plural={DWHs},%
+description={In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is a core component of business intelligence. Data warehouses are central repositories of data integrated from disparate sources.},%
+descriptionplural={In computing, a data warehouse (DW or DWH), also known as an enterprise data warehouse (EDW), is a system used for reporting and data analysis and is a core component of business intelligence. Data warehouses are central repositories of data integrated from disparate sources.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{businessanalyst}%
+{%
+name={Business analyst},%
+sort={Business analyst},%
+type={main},%
+first={business analyst},%
+firstplural={business analysts},%
+text={business analyst},%
+plural={business analysts},%
+description={A business analyst (BA) is a person who processes, interprets and documents business processes, products, services and software through analysis of data. The role of a business analyst is to ensure business efficiency increases through their knowledge of both IT and business function.},%
+descriptionplural={A business analyst (BA) is a person who processes, interprets and documents business processes, products, services and software through analysis of data. The role of a business analyst is to ensure business efficiency increases through their knowledge of both IT and business function.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{logisticservice}%
+{%
+name={LS, logistic service},%
+sort={LS, logistic service},%
+type={main},%
+first={logistic service},%
+firstplural={logistic services},%
+text={logistic service},%
+plural={logistic services},%
+description={A business analyst (BA) is a person who processes, interprets and documents business processes, products, services and software through analysis of data. The role of a business analyst is to ensure business efficiency increases through their knowledge of both IT and business function.},%
+descriptionplural={A business analyst (BA) is a person who processes, interprets and documents business processes, products, services and software through analysis of data. The role of a business analyst is to ensure business efficiency increases through their knowledge of both IT and business function.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{logisticservices}%
+{%
+name={LS, Logistics Services},%
+sort={LS, Logistics Services},%
+type={main},%
+first={logistics services},%
+firstplural={logistics servicess},%
+text={logistics services},%
+plural={logistics servicess},%
+description={Logistics Services (LS) is responsible for efficient and secure logistics of letters, printed matter and newspapers, as well as parcels, goods and merchandise in Switzerland and internationally. Logistics Services is the largest business unit of Swiss Post and makes a substantial contribution to the company’s success with over 21 000 employees.},%
+descriptionplural={Logistics Services (LS) is responsible for efficient and secure logistics of letters, printed matter and newspapers, as well as parcels, goods and merchandise in Switzerland and internationally. Logistics Services is the largest business unit of Swiss Post and makes a substantial contribution to the company’s success with over 21 000 employees.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{AWSGlue}%
+{%
+name={AWS Glue},%
+sort={AWS Glue},%
+type={main},%
+first={AWS Glue},%
+firstplural={AWS Glues},%
+text={AWS Glue},%
+plural={AWS Glues},%
+description={AWS Glue is a serverless data integration service that makes it easy for analytics users to discover, prepare, move, and integrate data from multiple sources. You can use it for analytics, machine learning, and application development. It also includes additional productivity and data ops tooling for authoring, running jobs, and implementing business workflows. https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html},%
+descriptionplural={AWS Glue is a serverless data integration service that makes it easy for analytics users to discover, prepare, move, and integrate data from multiple sources. You can use it for analytics, machine learning, and application development. It also includes additional productivity and data ops tooling for authoring, running jobs, and implementing business workflows. https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{KPI}%
+{%
+name={KPI, key performance indicator},%
+sort={KPI, key performance indicator},%
+type={main},%
+first={KPI},%
+firstplural={KPIs},%
+text={KPI},%
+plural={KPIs},%
+description={A performance indicator or key performance indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity (such as projects, programs, products and other initiatives) in which it engages. KPIs provide a focus for strategic and operational improvement, create an analytical basis for decision making and help focus attention on what matters most.},%
+descriptionplural={A performance indicator or key performance indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity (such as projects, programs, products and other initiatives) in which it engages. KPIs provide a focus for strategic and operational improvement, create an analytical basis for decision making and help focus attention on what matters most.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{scrum}%
+{%
+name={Scrum},%
+sort={Scrum},%
+type={main},%
+first={scrum},%
+firstplural={scrums},%
+text={scrum},%
+plural={scrums},%
+description={Scrum is an agile team collaboration framework commonly used in software development and other industries. Scrum prescribes for teams to break work into goals to be completed within time-boxed iterations, called sprints.},%
+descriptionplural={Scrum is an agile team collaboration framework commonly used in software development and other industries. Scrum prescribes for teams to break work into goals to be completed within time-boxed iterations, called sprints.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{kanban}%
+{%
+name={Kanban},%
+sort={Kanban},%
+type={main},%
+first={kanban},%
+firstplural={kanbans},%
+text={kanban},%
+plural={kanbans},%
+description={Kanban (Japanese: かんばん [kambaɴ] meaning signboard) is a scheduling system for lean manufacturing (also called just-in-time manufacturing). Taiichi Ohno, an industrial engineer at Toyota, developed kanban to improve manufacturing efficiency. The system takes its name from the cards that track production within a factory.},%
+descriptionplural={Kanban (Japanese: かんばん [kambaɴ] meaning signboard) is a scheduling system for lean manufacturing (also called just-in-time manufacturing). Taiichi Ohno, an industrial engineer at Toyota, developed kanban to improve manufacturing efficiency. The system takes its name from the cards that track production within a factory.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{JourFixe}%
+{%
+name={Jour Fixe},%
+sort={Jour Fixe},%
+type={main},%
+first={Jour Fixe},%
+firstplural={Jour Fixes},%
+text={Jour Fixe},%
+plural={Jour Fixes},%
+description={A Jour Fixe is a weekly meeting used in project management to provide updates on progress, issues encountered during work, and problems that remain unresolved and require assistance. It serves to maintain communication and alignment with stakeholders.},%
+descriptionplural={A Jour Fixe is a weekly meeting used in project management to provide updates on progress, issues encountered during work, and problems that remain unresolved and require assistance. It serves to maintain communication and alignment with stakeholders.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{epic}%
+{%
+name={Epic},%
+sort={Epic},%
+type={main},%
+first={epic},%
+firstplural={epics},%
+text={epic},%
+plural={epics},%
+description={Epics are large bodies of work in Agile that are broken down into smaller user stories for incremental delivery. They help teams organize, prioritize, and track progress toward bigger goals while maintaining agility.},%
+descriptionplural={Epics are large bodies of work in Agile that are broken down into smaller user stories for incremental delivery. They help teams organize, prioritize, and track progress toward bigger goals while maintaining agility.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{MIAR}%
+{%
+name={MIAR},%
+sort={MIAR},%
+type={main},%
+first={MIAR},%
+firstplural={MIARs},%
+text={MIAR},%
+plural={MIARs},%
+description={MIAR is the internal reporting and project effort tracking system used at Swiss Post. It is integrated with applications for working time recording, such as check-in and check-out. It allows employees to allocate worked hours to projects, which in turn enables monitoring of project efforts.},%
+descriptionplural={MIAR is the internal reporting and project effort tracking system used at Swiss Post. It is integrated with applications for working time recording, such as check-in and check-out. It allows employees to allocate worked hours to projects, which in turn enables monitoring of project efforts.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{WYSIWYG}%
+{%
+name={WYSIWYG (what you see is what you get)},%
+sort={WYSIWYG (what you see is what you get)},%
+type={main},%
+first={WYSIWYG},%
+firstplural={WYSIWYGs},%
+text={WYSIWYG},%
+plural={WYSIWYGs},%
+description={In computing, WYSIWYG (what you see is what you get) is software that allows content to be edited in a form that resembles its appearance when printed or displayed as a finished product, such as a printed document, web page, or slide presentation. WYSIWYG implies a user interface that allows the user to view something very similar to the result while the document is being created.},%
+descriptionplural={In computing, WYSIWYG (what you see is what you get) is software that allows content to be edited in a form that resembles its appearance when printed or displayed as a finished product, such as a printed document, web page, or slide presentation. WYSIWYG implies a user interface that allows the user to view something very similar to the result while the document is being created.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{PBI}%
+{%
+name={Microsoft Power BI (PBI)},%
+sort={Microsoft Power BI (PBI)},%
+type={main},%
+first={Power BI},%
+firstplural={Power BIs},%
+text={Power BI},%
+plural={Power BIs},%
+description={Microsoft Power BI (PBI) is an interactive data visualization software product developed by Microsoft with a primary focus on business intelligence (BI). It is part of the Microsoft Power Platform. Power BI is a collection of software services, apps, and connectors that work together to turn various sources of data into static and interactive data visualizations.},%
+descriptionplural={Microsoft Power BI (PBI) is an interactive data visualization software product developed by Microsoft with a primary focus on business intelligence (BI). It is part of the Microsoft Power Platform. Power BI is a collection of software services, apps, and connectors that work together to turn various sources of data into static and interactive data visualizations.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

@@ -1,0 +1,294 @@
+%============================ MAIN DOCUMENT ================================
+% define document class
+\documentclass[
+	class=report,
+	a4paper,               % paper format
+	twoside=false,
+	open=any, % Chapters start on even and uneven pages, remove for print
+%	,10.5pt               % fontsize
+%	,BCOR=18mm            % Binding correction
+	,bibliography=totoc   % If enabled add bibliography to TOC
+	,listof=totoc         % If enabled add lists to TOC
+%	,bilingual
+	,monolingual
+]{bfhthesis}              % KOMA-script report
+
+% TExt styling
+\usepackage[
+	hidelinks,
+	pdfusetitle,
+]{hyperref}
+\usepackage{parskip}
+
+% to have a smaller document, compression of : fonts, page stream, sobject streams
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
+
+
+% to fix numbering of pages beeing cut at the bottom
+\usepackage[a4paper,includefoot,bottom=25mm,left=15mm,right=15mm,top=15mm]{geometry}
+\setlength{\footskip}{15mm}
+
+
+%table styles
+\usepackage{ltablex} % Combines longtable + tabularx
+\usepackage[table]{xcolor}
+\usepackage{tabularx,array,booktabs,multirow,graphicx,makecell}
+%\usepackage[margin=15mm]{geometry}
+\usepackage{ragged2e}
+\usepackage{longtable,booktabs,array}
+\usepackage{pdflscape}
+
+% Define column type for wrapped text
+\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+% Komfort: zentrierte p-Spalte
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% for images which can be placed where they fit
+\usepackage{graphicx}
+\usepackage{float}
+
+% for style of sql text to show correct code highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{sqlstyle}{
+  language=SQL,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  prebreak=\mbox{\textcolor{gray}{$\hookleftarrow$}\space},
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+  xleftmargin=0pt,
+  xrightmargin=0pt,
+  framexleftmargin=4pt,
+  framexrightmargin=4pt
+}
+
+
+
+
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\small,
+    numbers=none,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    morestring=[b]",
+    stringstyle=\color{blue},
+    literate=
+     *{0}{{{\color{magenta}0}}}{1}
+      {1}{{{\color{magenta}1}}}{1}
+      {2}{{{\color{magenta}2}}}{1}
+      {3}{{{\color{magenta}3}}}{1}
+      {4}{{{\color{magenta}4}}}{1}
+      {5}{{{\color{magenta}5}}}{1}
+      {6}{{{\color{magenta}6}}}{1}
+      {7}{{{\color{magenta}7}}}{1}
+      {8}{{{\color{magenta}8}}}{1}
+      {9}{{{\color{magenta}9}}}{1}
+      {:}{{{\color{black}{:}}}}{1}
+      {,}{{{\color{black}{,}}}}{1}
+      {\{}{{{\color{black}{\{}}}}{1}
+      {\}}{{{\color{black}{\}}}}}{1}
+      {[}{{{\color{black}{[}}}}{1}
+      {]}{{{\color{black}{]}}}}{1}
+}
+
+
+
+% Terraform syntax highlighting
+\lstdefinelanguage{Terraform}{
+  morekeywords={
+    terraform,
+    required_version,
+    required_providers,
+    provider,
+    resource,
+    data,
+    variable,
+    output,
+    locals,
+    module,
+    backend,
+    source,
+    version,
+    type,
+    default,
+    description,
+    sensitive,
+    depends_on,
+    count,
+    for_each,
+    lifecycle,
+    dynamic,
+    content,
+    true,
+    false,
+    null
+  },
+  sensitive=true,
+  morecomment=[l]{\#},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+
+
+\lstdefinestyle{terraformstyle}{
+  language=Terraform,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{blue},
+  commentstyle=\color{gray},
+  numbers=none,
+  showstringspaces=false,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  tabsize=2,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{black},
+  backgroundcolor=\color{white},
+  captionpos=b,
+  literate=
+   *{0}{{{\color{magenta}0}}}{1}
+    {1}{{{\color{magenta}1}}}{1}
+    {2}{{{\color{magenta}2}}}{1}
+    {3}{{{\color{magenta}3}}}{1}
+    {4}{{{\color{magenta}4}}}{1}
+    {5}{{{\color{magenta}5}}}{1}
+    {6}{{{\color{magenta}6}}}{1}
+    {7}{{{\color{magenta}7}}}{1}
+    {8}{{{\color{magenta}8}}}{1}
+    {9}{{{\color{magenta}9}}}{1}
+    {:}{{{\color{black}{:}}}}{1}
+    {,}{{{\color{black}{,}}}}{1}
+    {\{}{{{\color{black}{\{}}}}{1}
+    {\}}{{{\color{black}{\}}}}}{1}
+    {[}{{{\color{black}{[}}}}{1}
+    {]}{{{\color{black}{]}}}}{1}
+    {=}{{{\color{black}{=}}}}{1}
+}
+
+% for cite different apearance
+\hypersetup{hidelinks=false, colorlinks=true}
+\hypersetup{
+  citecolor=blue!60!black,
+  linkcolor=black,
+  urlcolor=blue!60!black
+}
+
+
+% for 2 column itemized lists
+\usepackage{multicol}
+
+
+% for Pseudo codes
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\keepXColumns % ensures column widths stay consistent over pages
+
+% --- Farben (an die Grafik angelehnt) ---
+\definecolor{riskgreen}{HTML}{9AC88F}   % grün (low)
+\definecolor{riskyellow}{HTML}{FFF2A8}  % gelb
+\definecolor{riskorange}{HTML}{F4C37D}  % orange
+\definecolor{riskred}{HTML}{E06666}     % rot
+\definecolor{riskgrey}{HTML}{D9D9D9}    % Kopf-/Randgrau
+
+
+% glossaries and bibliography
+\usepackage{glossaries}
+
+\usepackage[
+    backend=biber,
+    style=authoryear
+]{biblatex}
+
+\DeclareCiteCommand{\cite}[\mkbibbrackets]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\addbibresource{MTE7102_DataQualityVisuals.bib}
+
+\makeglossaries
+\input{glossary}
+
+\KOMAoptions{open=any}
+
+% Prevent blank pages inserted for odd/even page alignment
+\makeatletter
+\let\cleardoublepage\clearpage
+\let\cleardoubleoddpage\clearpage
+\let\cleardoubleevenpage\clearpage
+\makeatother
+
+\begin{document}
+
+\frontmatter
+
+\title{Specialisation Project 2 MTE7102}
+\subtitle{Automating data quality validations in Amazon Athena: An MVP based approach}
+\author{Roland Angelo Roccaro}
+\institution{Bern University of Applied Sciences}
+\department{School of Engineering and Computer Science}
+\institute{Master of Science in Engineering}
+\version{1.0}
+\titlegraphic{\includegraphics[width=\width]{./content/img/TitlePage_V1.png}}
+\advisor{Prof. Dr. Kenneth A. Ritley}
+%\coadvisor{Todo Mr. or Mrs. Undefined}
+\projectpartner{Swiss Post}
+%\expert{Todo Mr. or Mrs. Undefined}
+\degreeprogram{Master of Science MSc in Engineering: Profile Data Science}
+
+%----------------  BFH tile page   -----------------------------------------
+\maketitle
+
+% chapter and abstract imports as input
+
+
+\input{Abstract}
+
+
+%------------ TABLEOFCONTENTS ----------------
+\tableofcontents
+
+% optional:
+% \printglossary[type=\acronymtype,title={List of Acronyms}]
+
+
+
+%------------ START MAIN PART ----------------
+
+\mainmatter
+
+\input{content}
+
+\listoffigures
+\listoftables
+\addcontentsline{toc}{chapter}{Glossary}
+\printglossary[title={Glossary}]
+
+\printbibliography
+
+
+\appendix
+\input{Appendix}  
+
+\end{document}

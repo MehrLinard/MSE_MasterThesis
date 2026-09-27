@@ -1,0 +1,9 @@
+Howto make the pdf smaller :
+In Poweshell
+requires install of Ghostscripts: https://ghostscript.com/releases/gsdnld.html
+*->Path installation wird automatisch während installation gemacht,
+*->Anschliessend dieses Powershell Script.. wobei der letzte Teil, der Dateinamen ist vom aktuellen File.
+*->die komprimierung schaft aus 49 MB pdf ein 4 MB pdf zu machen. Dabei werden vor allem die Bilder komprimiert, weil die machen ca 46.6 MB aus
+*->Latex fügt bilder in Original grösse ein, daher die enorme grösse der Bilder
+
+gswin64c --% -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=MTE7102_DataQualityVisuals_small.pdf MTE7102_DataQualityVisuals.pdf

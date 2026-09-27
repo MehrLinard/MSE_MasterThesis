@@ -1,0 +1,227 @@
+\section{Report visualisations and evaluations}
+
+After introducing the basic solution landscape, this project now examines the more specific context of report visualisations and the evaluation of automation.
+
+
+
+\subsection*{Power BI}
+
+At Swiss Post, within the \gls{DWHLSOPS} environment, \gls{PowerBI} is the designated business intelligence tool. It is intended to replace the currently used tools over time. The main reasons for this shift are the lower licence costs compared with the previous \gls{SAC}; furthermore, it performed faster in direct comparison tests with its predecessor. Therefore, Power BI served as the BI tool in this project, as it is specifically replacing an old report in \gls{SAC}.
+
+
+
+\subsubsection*{Architectural position}
+
+When considering the data lineage, Power BI is replacing both \gls{DSP} on the data model side and the front-end part of \gls{SAC}. In total, it is replacing the work areas of the business stakeholders working together with the \gls{DWHLSOPS} team. This is because they are involved in both the generation of tests and the updating of reports within the reporting and monitoring layer.
+
+
+
+\subsection*{Star schema}
+
+During the speed tests and comparisons with the old business intelligence tool, the star schema as a data architecture was tested. It showed that \gls{PowerBI} performed better with this new structure. Therefore, as Power BI was designated as the new business intelligence tool, the architecture was changed accordingly.
+
+\subsubsection*{Basic architecture of a star schema}
+
+When looking at database architecture, a star schema is basically a partly denormalised database that has been optimised for fast \gls{OLAP} processing. The data are split into repeated dimension informations, which are linked with the factual data in the fact table in the middle. In such a architecture there is only one fact table holding the information the model is providing and multiple dimensions which are repeating informations. In the case of the message processing star shema, the fact table are the messages, who come with their specific informations such as an unique ID to identify them. They are then linked to the different dimensions trough other id's which can be linked to entries in the dimension tables. As a toy sample the message ``ABC134'' may have the desination 4, which is in the destination table the id 4, and can represent a whole adress or a person. More information can be found at this source \cite{enwiki:1306074452}. Furthermore, the following figure shows a sample star shema with a fact table in the middle and many connected dimensions around it.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{./content/img/Star_Schema_Wikipedia.png}
+    \caption{Illustration of a star schema showing the relationship between a central fact table and multiple dimension tables. Image adapted from Wikipedia.}
+    \label{fig:star_schema_wikipedia}
+\end{figure}
+
+
+
+
+\subsubsection*{Basic architecture of a wide table}
+
+In contrast to a star schema, a wide table stores all the data in one large, very wide table. This concept of the \gls{widetable} was introduced at Swiss Post together with \gls{SAC}. In a wide table, the data are not split into different tables; instead, all existing measures are repeated for every dataset. For example, every data point measured at the same factory would have the same identifying address information repeated, rather than a single key pointing to an addresses table \cite{QuestDBWideTable}. Such a table makes it easier to create reports which are already known at the moment of setting up the table, as every data required is available. However if additional data is required a wide table has to be extended.
+
+
+
+\subsection*{Reporting idea}
+
+When considering the previous report generated through \gls{SAC}, it can be seen that it is not very visual. The data are shown only as a table without colour highlights or additional indicators. Without sufficient business knowledge, it did not allow a user to determine whether the data quality was acceptable for a specific day. The current report is shown below.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/Plain_DQM_WEST_19-12-2025_08-43-34.png}
+    \caption{Existing plain DQM dashboard used as the baseline for the redesigned Power BI report}
+    \label{fig:plain_dqm_dashboard}
+\end{figure}
+
+
+To improve this situation, a report that had to replace it needed to be more visual and apply some of the most basic business knowledge, allowing users to interpret its results more quickly. As the previous research had already defined which rules had to be applied in an automatic check, those rules formed the basis for the report's visualisation.
+
+\subsubsection{Business stakeholder feedback}
+
+During meetings with the business, their requirements were gathered. These were simple: the report had to be upgraded to use the new data source. Since the adoption of Power BI also enabled a more efficient reporting data structure, this had to be measurable again. As the data themselves had only been rearranged and were not fundamentally different, the checks and the way they had to be shown in a table remained the same. Regarding additional improvements to the report, no direction was given; however, approval was provided to improve the report with useful information.
+
+\subsection*{DevOps}
+
+At Swiss Post, deployments are carried out by software engineers, effectively making their field of operations \gls{DevOps}.
+
+The field of DevOps is described by Wikipedia as follows \cite{enwiki:1362982395}:
+
+DevOps is the integration and automation of software development and information technology operations. DevOps encompasses the tasks necessary for software development and can lead to both shortening development time and improving the development life cycle. According to American software architect Neal Ford, DevOps, particularly through continuous delivery, employs the "bring the pain forward" principle by tackling challenging tasks early, fostering automation, and enabling swift issue detection.
+
+Although debated, DevOps is generally characterized by three key principles: shared ownership, workflow automation, and rapid feedback. From an academic perspective, Len Bass, Ingo Weber, and Liming Zhu—three computer science researchers from the CSIRO and the Software Engineering Institute—defined DevOps as "a set of practices intended to reduce the time between committing a change to a system and the change being placed into normal production, while ensuring high quality". However, the term is used in multiple contexts. At its most successful, DevOps is a combination of specific practices, culture change, and tools.
+
+
+
+\subsubsection*{DevOps at Swiss Post}
+
+At Swiss Post, the DevOps process is already defined and is not changed by this project. It applies all defined tools and rules. The general rules are as follows:
+
+\begin{itemize}
+    \item GitHub is used as the code repository, using SSO with Swiss Post accounts.
+    \item Access to repositories is limited and managed by a permission system.
+    \item Separate repositories exist for development and production environments.
+    \item Repositories are also separated by function, e.g. repositories for Terraform \gls{IaC} or SQL scripts for \gls{athena}.
+    \item Development is performed on branches.
+    \item To merge branches, a pull request is required; this triggers GitHub Actions.
+    \item GitHub Actions perform checks depending on the repository and its function.
+    \item To merge code into production environments, a review by another developer is required in addition to successful GitHub Actions.
+    \item In addition to this deployment pipeline, DevOps engineers continue maintaining and supporting their code.
+\end{itemize}
+
+
+
+
+\subsubsection*{Frontend deployment pipelines}
+
+Regarding frontend reports, a similar process is already defined and also applied; it is not adapted by this project. When deploying front-end reports using Power BI, the process takes place entirely within the Microsoft environment.
+
+\begin{itemize}
+    \item Reports are initially created in Power BI Desktop.
+    \item Development and testing happen in the desktop version first.
+    \item The report is deployed from Power BI Desktop to the Microsoft Fabric development environment.
+    \item The code is checked in using Git integration in Microsoft Fabric.
+    \item The report is tested first in the development environment.
+    \item It is then deployed through the defined pipeline to the test environment.
+    \item Stakeholders perform tests in the test environment.
+    \item After successful testing and any required fixes, approval for production deployment is given.
+    \item Production deployment is performed again through the deployment pipeline.
+\end{itemize}
+
+The deployment pipeline is shown in the figure below, showing the selection of environments from which the three-step process starts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_Deployment.png}
+\caption{Power BI deployment pipeline across the development, test, and production environments in Microsoft Fabric}
+    \label{fig:powerbi_deployment_pipeline}
+\end{figure}
+
+
+
+\section{DQM tool selection}
+
+The DQM tool selection required a structured approach. Such an approach required first setting up a list of requirements for the tool. Then an evaluation of how well the tools fulfilled these requirements. And finally the invitation of the providers that fulfilled the requirements to demonstrations.
+
+\subsection*{Tool selection principles}
+
+The first step in evaluating a tool must be to determine what a tool actually needs to have. Commonly, such lists are called requirement lists. They have to incorporate the must-have features of a tool and the nice-to-have requirements. With such a list, the decision together with higher management is made easier, as it allows for scoring and provides an easy overview of how many points each tool scored. Based on such a points list, the best-performing or best-value tool can be selected.
+
+\subsection*{Requirements list}
+
+At Swiss Post, the \gls{DQM} team set up the requirements list. It incorporates the following main principles:
+
+\begin{itemize}
+    \item \textbf{Data Coverage \& Connectivity:} Integration into the existing tool landscape. The requirement to be cloud-first. The most important data sources that need to be handled.
+    \item \textbf{Data Quality Capabilities:} The actual DQM requirements that the tool must fulfil. The expected usability, such as no-code environments.
+    \item \textbf{Reporting \& Monitoring:} The tool must allow exports to other tools for reporting purposes.
+    \item \textbf{Performance and Reliability:} The tool needs to be responsive even on large datasets, as Swiss Post will want to run checks on very large transaction datasets.
+    \item \textbf{Cost \& Licensing:} The cost of a tool is relevant. How the cost is structured.
+\end{itemize}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/PostInput1/DQM_Tool_Evaluation_1.png}
+    \caption{Overview of the data quality management tool evaluation process and the assessed evaluation criteria}
+    \label{fig:dqm_tool_evaluation_1}
+\end{figure}
+
+Additionally, there are the more \gls{softcriteria}, which are nice to have. Soft criteria are criteria that are not mandatory but make the usage of an application easier for users, e.g. by providing easy management of access roles. The list as defined by Swiss Post is shown in the following screenshot:
+
+\begin{itemize}
+    \item \textbf{Usability \& User Experience:} User permission system allowing multiple different access levels and their provisioning through existing means.
+    \item \textbf{Technical Requirements:} The security requirements that the cloud solution has to meet. Additionally, the connectivity options that it needs to support.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./content/PostInput1/DQM_Tool_Evaluation_2.png}
+    \caption{Continuation of the data quality management tool evaluation, including the comparison of the evaluated solutions}
+    \label{fig:dqm_tool_evaluation_2}
+\end{figure}
+
+
+
+\subsection*{DQM tooling selection}
+
+After defining the selection criteria, the tools are researched. The research on these tools was also carried out by the DQM team, so it is out of scope for this work. As a result of the tool research, the different tools found are evaluated against the criteria. This finally results in the table shown below, highlighting the performance of the tools against the criteria. This table then serves as the basis for deciding which tools are invited for demonstrations or directly excluded. The following screenshot shows the five tools that were included in the evaluation, including the three in green that were invited for demonstrations.
+
+\begin{itemize}
+    \item \textbf{Ataccama ONE}: Selected for demonstration.
+    \item \textbf{Informatica IDMC (CDQ + optional Streaming)}: Selected for demonstration.
+    \item \textbf{Soda (Core + Cloud)}: Selected for demonstration. The demonstration is documented later in this document.
+    \item \textbf{Great Expectations}: Not selected for demonstration.
+    \item \textbf{SAP Information Steward}: Not selected for demonstration.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/PostInput1/DQM_Tool_Evaluation_3.png}
+    \caption{Example of the comparative evaluation matrix used during the assessment of different data quality management tools}
+    \label{fig:dqm_tool_evaluation_3}
+\end{figure}
+
+
+
+\subsection*{Design Decisions}
+
+The next step after the evaluation table is to invite the selected tool vendors or providers to a demonstration. During this demonstration, the providers are asked to show the performance of their tool against the defined criteria, but they can also demonstrate any specific benefits that they provide. The demonstration gives the selecting company a more detailed view of the capabilities of the tool when applied to its dataset and whether any shortcomings would prevent a positive decision. Furthermore, it allows the selecting company to ask questions directly about any open items. After a demonstration, the scoring can be adjusted and, finally, a decision made on whether to proceed with a provider into a \gls{PoC} or even contract negotiations, or to inform them that they have been excluded from the selection.
+
+
+
+\subsection*{Alternative Outcome}
+
+The previous subsection assumes that a tool can be found for the defined use case. However, in case such a tool cannot be found, alternative ways need to be followed. In this work, the focus is on the solution; the why question will therefore also be excluded from the solution architecture. In case no solution is found:
+
+\begin{enumerate}
+\item \textbf{Reduce and adapt:} If the full use case cannot be satisfied by the tools at hand, the original use case can be adapted. The implementation can be adapted to a smaller use case while waiting for a suitable technology.
+
+\item \textbf{Reconsider the discarded:} The previously discarded solutions or approaches can be reconsidered. Engage in discussions with the tools being developed internally. Review the tools which were excluded from selection to find out if they are fit for the use case of this project.
+
+\item \textbf{Consult and discuss:} In large organisations, multiple initiatives can happen at the same time which are not seen on the team level. Therefore, engaging with a solution architect can open up the view towards other options. It allows identifying possible repurposing of existing tools which can fulfil the project's needs.
+\end{enumerate}
+
+\section{DQM tool testing}
+
+After the tool evaluation and selection, the testing should confirm whether it can execute the required tests in the following master thesis. Testing requires knowledge of how to use the tool and a simplification of the overall topic of the thesis.
+
+
+
+
+\subsection*{Knowledge buildup}
+
+In order to understand the basic function of a tool, the required knowledge had to be acquired first. To do so, a variety of options are available. These are either based on documentation and how-to guides or direct knowledge transfer between developers who developed the tool or have already used it. In addition to the tool, additional technologies may be required to run tests, which in turn have to be studied as well. As, at this stage, the decision is pending, further details are not available as to what needs to be part of the knowledge buildup.
+
+\subsection*{Tool testing}
+
+The tool had to be tested in order to confirm its applicability to the master thesis. The test of the application requires the use case to be broken down into a smaller test, with which the team can decide whether the tool can be used for further development. If such a tool were to fail the test, a return to the previous step and a continuation of the tool search would be necessary. In addition to the tool itself being tested, the setup required for it to run is equally part of the test. In the case of Swiss Post, this can include steps for permissions and infrastructure, which are commonly set up using \gls{terraform}.
+
+
+
+\subsubsection*{Test design}
+
+The test design is important so that the selected case is both a step towards the complete use case and easier to execute. It must also include the infrastructure to be built for the use case. For the use case at hand, the test must prove that data can be queried with the tool, returning results that can be further processed. The processing of the data is, however, not required as part of the test design, as this may require multiple data points to be included in a check.
+
+For this use case, which is the counting of multiple events per day, the count of one event is sufficient for a test. Therefore, the query at hand has to be reduced so that it only returns one event. However, even one event still requires identifying data, namely the date and the sorting centres. In addition to the idea of a final check, the test also has to be modular. First, the test will check whether any data are returned at all, then it will go deeper by checking the more specific event.

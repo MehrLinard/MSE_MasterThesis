@@ -1,0 +1,288 @@
+\section{Risk management}
+\label{ProjMgmtRisk}
+In this section, the approach taken to risk management is described. Risk management is essential to the success of any project, as it enables planning for and potentially preventing dangers that may occur during its course. When such risks are not handled, they can endanger the progress of the project. The risk management process consists of several steps \cite{RiskmgmtWikipedia}. First, the risks are identified and classified as to their nature. Next, they are weighted according to how they might impact this project; this includes a consideration of the probability that the risks may arise, and the level of damage that may occur. After this, the specific handling of each risk is defined; these are the concrete measures that are taken to lower how the risk may impact the project. Finally, ongoing monitoring and review of the risks is carried out on a regular basis throughout the project.
+
+\subsection*{Risk identification and classification}
+
+The identification of risks has been carried out for this project, following an extensive brainstorming approach. Each risk has been grouped into a category (e.g. goal, time and organization, etc.), and each risk has been classified according to the likelihood of is occurance and severity it would cause to the project. Both criteria are evaluated based on the project team’s \gls{riskappetite} and ranked according to the following definitions.
+
+\begin{itemize}
+    \item \textbf{Likelihood:} What is the expected likelihood of a risk coming into effect
+    \begin{itemize}
+        \item \textbf{1} Rare
+        \item \textbf{2} Unlikely
+        \item \textbf{3} Possible
+        \item \textbf{4} Likely
+        \item \textbf{5} Almost Certain
+    \end{itemize}
+
+    \item \textbf{Severity:} How severe are the consequences of the risk coming into effect
+    \begin{itemize}
+        \item \textbf{1} Insignificant
+        \item \textbf{2} Minor
+        \item \textbf{3} Moderate
+        \item \textbf{4} Major
+        \item \textbf{5} Severe
+    \end{itemize}
+\end{itemize}
+
+The identified  risks, along with their likelihood and severity, are listed in Table \ref{tab:risks}.
+
+\begin{longtable}{@{} C{1.1cm} L{3.2cm} L{8.1cm} C{1.6cm} C{1.6cm} @{}}
+\caption{Project Risk Overview}\label{tab:risks}\\
+
+
+\toprule
+\textbf{No.} & \textbf{Group} & \textbf{Risk} & \textbf{Likelihood} & \textbf{Severity} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{No.} & \textbf{Group} & \textbf{Risk} & \textbf{Likelihood} & \textbf{Severity} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{\small Continued on next page} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1  & Goal & Unclear question & 2 & 2 \\
+2  & Goal & Unclear goals & 2 & 3 \\
+3  & Time and Organisation & Insufficient expertise & 4 & 2 \\
+4  & Time and Organisation & Underestimated time/effort & 4 & 3 \\
+5  & Time and Organisation & Other study projects & 3 & 3 \\
+6  & Time and Organisation & Work projects & 4 & 3 \\
+7  & Time and Organisation & Procrastination & 3 & 2 \\
+8  & Human Resources & Unavailability of main project staff (e.g., due to illness) & 4 & 4 \\
+9  & Human Resources & Unavailability of advisor (e.g., due to illness, accident, etc.) & 3 & 4 \\
+10 & Tech and Infrastructure & Software Version/Library/Dependency & 4 & 3 \\
+11 & Tech and Infrastructure & Hardware is damaged & 2 & 5 \\
+12 & Data and Research & Data related & 4 & 3 \\
+13 & Data and Research & Not reproducible work & 2 & 5 \\
+14 & Ethical and Legal & Plagiarism or wrong citation & 2 & 5 \\
+15 & Ethical and Legal & Copyright & 1 & 5 \\
+16 & Communication and Cooperation & Bad communication with stakeholder or advisor & 2 & 4 \\
+17 & Communication and Cooperation & Insufficient exchange with external partners & 1 & 5 \\
+18 & Force Majeure & Unforeseen family crisis & 2 & 5 \\
+19 & Force Majeure & General force majeure & 1 & 5 \\
+20 & Communication and Cooperation & Unknown process & 5 & 3 \\
+
+\end{longtable}
+
+
+\subsection*{Risk heat map}
+After carrying out the initial identification and classification, it is not always easy to determine which risks require the most attention. To support this task, a Risk Heat Map is used, in which each risk is plotted in a two-dimensional matrix according to its likelihood and severity. This visualisation highlights the risks that pose the greatest threat to the project and should be considered for priority treatment. The colours in the Risk Heat Map \ref{tab:risks_sev_likely} correspond to these descriptions.
+
+
+\begin{itemize}
+    \item \textbf{Green} Low
+    \item \textbf{Yellow} Medium
+    \item \textbf{Orange} High
+    \item \textbf{Red} Very High
+\end{itemize}
+
+
+
+
+\begin{table}[h]
+\centering
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.6}
+\label{tab:risks_sev_likely}
+% 7 columns total: [1] merged "Severity" column + [2] row labels + [5] severity levels
+\begin{tabular}{|C{1.3cm}|C{2.8cm}|*{5}{C{2.6cm}|}}
+
+% --- Top black title row: span first two columns for title, last five for "Severity" header label ---
+
+\hline
+\rowcolor{black}
+\multicolumn{2}{|c|}{\color{white}\bfseries Risk Matrix} &
+\multicolumn{5}{c|}{\color{white}\bfseries Severity} \\
+\hline
+
+% merged first column (6 rows high)
+
+\multirow{6}{*}{\cellcolor{white}{\color{black}\bfseries \rotatebox{90}{Severity}}}
+  & \cellcolor{riskgrey}{}  % empty label cell
+  & \cellcolor{riskgrey}\bfseries 1: Insignificant
+  & \cellcolor{riskgrey}\bfseries 2: Minor
+  & \cellcolor{riskgrey}\bfseries 3: Moderate
+  & \cellcolor{riskgrey}\bfseries 4: Major
+  & \cellcolor{riskgrey}\bfseries 5: Severe \\
+\hline
+
+% ---- Row 1 ----
+& \cellcolor{riskgrey}\bfseries 5: Almost Certain
+& \cellcolor{riskyellow}{\bfseries 15\; 17\; 19\;}
+& \cellcolor{riskorange}{\bfseries 11\; 14\;}
+& \cellcolor{riskred}{\bfseries 20\;}
+& \cellcolor{riskred}{}
+& \cellcolor{riskred}{} \\
+\hline
+
+% ---- Row 2 ----
+& \cellcolor{riskgrey}\bfseries 4: Likely
+& \cellcolor{riskyellow}{\bfseries}
+& \cellcolor{riskorange}{\bfseries 16}
+& \cellcolor{riskorange}{\bfseries 9}
+& \cellcolor{riskred}{\bfseries 8}
+& \cellcolor{riskred}{} \\
+\hline
+
+% ---- Row 3 ----
+& \cellcolor{riskgrey}\bfseries 3: Possible
+& \cellcolor{riskgreen}{} 
+& \cellcolor{riskyellow}{} 
+& \cellcolor{riskorange}{\bfseries 5}
+& \cellcolor{riskorange}{\bfseries 4\; 6\; 10\; 12\;}
+& \cellcolor{riskred}{} \\
+\hline
+
+% ---- Row 4 ----
+& \cellcolor{riskgrey}\bfseries 2: Unlikely
+& \cellcolor{riskgreen}{}
+& \cellcolor{riskgreen}{\bfseries 1}
+& \cellcolor{riskyellow}{\bfseries 2\; 7}
+& \cellcolor{riskyellow}{\bfseries 3}
+& \cellcolor{riskorange}{} \\
+\hline
+
+% ---- Row 5 ----
+& \cellcolor{riskgrey}\bfseries 1: Rare
+& \cellcolor{riskgreen}{}
+& \cellcolor{riskgreen}{}
+& \cellcolor{riskgreen}{}
+& \cellcolor{riskgreen}{}
+& \cellcolor{riskyellow}{} \\
+\hline
+
+\end{tabular}
+
+
+
+\caption{Risk Matrix (Likelihood $\times$ Severity)}
+\end{table}
+
+As can be seen in the Risk Heat Map, one risk is classified as red and therefore requires special attention, namely, the unavailability of the main project staff. How this risk, as well as the others, is addressed will be described in the following section.
+
+\subsection*{Risk strategies and mitigation strategies}
+
+Risk strategies are the high level approaches to dealing with the risks, and the risk mitigations are the concrete plans developed to manage identified risks. In the following table, an overview of the individual risks is provided, including their selected treatment and a brief justification. BNaturally, it is neither practical nor feasible to completely eliminate every risk; therefore, based on likelihood and severity, as well as the team’s \gls{riskappetite}, each risk was assigned one of the following strategies:
+
+\begin{itemize}
+\item \textbf{Accept} – the risk and its potential impact are acknowledged, but no measures are taken
+\item \textbf{Reduce} – the risk is mitigated by applying additional measures to lower its impact or probability
+\item \textbf{Transfer} – the responsibility for handling the risk is assigned to another party
+\item \textbf{Avoid} – the project is adapted in a way that prevents the risk from materialising
+\end{itemize}
+
+\begin{longtable}{@{} C{1.2cm} L{2.5cm} L{4.5cm} L{2.5cm} L{5cm} @{}}
+\caption{Risk Strategy and Treatment Plan}\label{tab:risk_treatment}\\
+
+\toprule
+\textbf{No.} & \textbf{Risk} & \textbf{Risk Description} & \textbf{Treatment} & \textbf{Treatment Description} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{No.} & \textbf{Risk} & \textbf{Risk Description} & \textbf{Treatment} & \textbf{Treatment Description} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{\small Continued on next page} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1  & Unclear question & The topic description is too vague or contains too many goals & Reduce & Define SMART goals \\
+2  & Unclear goals & The goals are not clearly defined or cannot be measured & Reduce & Describe which goals are part of scope \\
+3  & Insufficient expertise & Not knowing required tools or programming languages & Accept &  \\
+4  & Underestimated time/effort & Some tasks take more time than initially expected & Accept & Document end of tasks in Miro calendar; re-evaluate after project \\
+5  & Other study projects & Other classes demand more attention, less time for project & Accept & Use minimum time for projects/classes \\
+6  & Work projects & Other projects at work demand urgent attention, less time for project & Reduce & Reduction of risk due to starting early; defining blockers for study work \\
+7  & Procrastination & Tasks are pushed back & Reduce & Start early \\
+8  & Unavailability of main project staff & One or multiple project staff are not available & Accept & Document in case it happens \\
+9  & Unavailability of advisor & The advisor is not available & Transfer & Advisor to define emergency replacement \\
+10 & Software Version/Library/Dependency & Mismatch in versions; new library versions break the code & Accept & Run the code multiple times; have test cases (e.g., unit tests) \\
+11 & Hardware is damaged & The laptops or other material are damaged and need repairs or replacement & Reduce & Second laptop; code on GitHub/Miro/Teams/Outlook \\
+12 & Data related & Bias in data; not enough data & Accept &  \\
+13 & Not reproducible work & The work provided cannot be reproduced & Reduce & Document steps; upload versions on GitHub \\
+14 & Plagiarism or wrong citation & Unallowed or undeclared usage of sources & Reduce & Use citation; bibliography \\
+15 & Copyright & Used literature or materials which are restricted & Accept &  \\
+16 & Bad communication with stakeholder or advisor & Advisor or stakeholders are not heard; their inputs are ignored & Reduce & Weekly advisor meetings \\
+17 & Insufficient exchange with external partners & External partners do not react, are delayed, or communication towards them is late or poor & Reduce & Stakeholders in Scrum team \\
+18 & Unforeseen family crisis & Unexpected crisis in family & Accept & To be documented in Miro calendar in case it happens \\
+19 & General force majeure & Events which cannot be influenced are very rare and very disruptive & Accept & To be documented in Miro calendar in case it happens \\
+20 & Unknown process & Events occurring during the project can block its execution or, in the worst case, lead to its cancellation & Reduce & Always start administrative processes between Swiss Post and BFH without delay. Always send reminders after three weeks at the latest. \\
+\end{longtable}
+
+\subsection*{Implementation of risk mitigation strategies}
+Identifying the key risks is the first step in the overall risk management approach; this is followed by defining measures for each of the risks. In the following table, the implementation of these measures is documented. The measures have been implemented according to the strategies and descriptions outlined above. Table \ref{tab:risk_actions} provides an overview of the actions taken and when they were carried out.
+
+
+\begin{longtable}{@{}C{1cm}L{3.5cm}L{9cm}C{2.5cm}@{}}
+\caption{Risk Strategy and Action Overview}\label{tab:risk_actions}\\
+
+\toprule
+\textbf{No.} & \textbf{Risk} & \textbf{Strategy Decision / What} & \textbf{When} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{c}{\bfseries \tablename\ \thetable{} -- continued from previous page} \\
+\toprule
+\textbf{No.} & \textbf{Risk} & \textbf{Strategy Decision / What} & \textbf{When} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{4}{r}{\small Continued on next page} \\
+\bottomrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1  & Unclear question & In the research section SMART goals have been setup & 01.03.2026 \\
+2  & Unclear goals & The introduction describes which parts of the initial project description are part of this document &  \\
+3  & Insufficient expertise & Accept: Nothing done & 01.03.2026 \\
+4  & Underestimated time/effort & Accept: Nothing done & 01.03.2026 \\
+5  & Other study projects & Accept: Nothing done & 01.03.2026 \\
+6  & Work projects & Added blockers in Work calendar, Work account invited to meeting series (Jour Fixe); study account: set blockers on weekend; researched with ChatGPT for optimal/minimal study plan & 01.03.2026 \\
+7  & Procrastination & Work on the project started 25.09.2025 when attending data quality meeting at AWS, being part of AWS Modernisation initiative & 01.03.2026 \\
+8  & Unavailability of main project staff (e.g., due to illness) & Contact of partner provided in Teams and added to Miro board & 01.03.2026 \\
+9  & Unavailability of advisor (e.g., due to illness, accident, etc.) & Asked for contact, confirmed to be Jürgen Vogel & 01.03.2026 \\
+10 & Software Version/Library/Dependency & Accept: Nothing done & 01.03.2026 \\
+11 & Hardware is damaged & Second laptop is available at home; the LaTeX document is a GitHub project; documentation is on Miro. Work laptop can also be used for most tasks, but has no LaTeX installed & 01.03.2026 \\
+12 & Data related & Accept: Nothing done & 01.03.2026 \\
+13 & Not reproducible work & GitHub project for LaTeX document & 01.03.2026 \\
+14 & Plagiarism or wrong citation & JabRef used as GUI for bibliography; Biber used for build & 01.03.2026 \\
+15 & Copyright & Accept: Nothing done & 01.03.2026 \\
+16 & Bad communication with stakeholder or advisor & Jour Fixe setup & 01.03.2026 \\
+17 & Insufficient exchange with external partners & Keep exchange channels active when changing team & 01.03.2026 \\
+18 & Unforeseen family crisis & Accept: Nothing done & 01.03.2026 \\
+19 & General force majeure & Accept: Nothing done & 01.03.2026 \\
+
+\end{longtable}
+
+\subsection*{Ongoing risk monitoring}
+A critical step in the risk management process is ongoing monitoring. Monitoring the risks ensures that the defined measures remain valid and that any risks that may materialise are identified. If a new risk is identified or causes a disruption to the project, it will be documented. Additionally, an appropriate measure to handle its impact will be defined. Monitoring of the risks will be performed every second Friday of each month. Detailed information about the risk monitoring process is provided in the appendix \ref{RiskMonitoring}.
+These risk check-ins will contain the following information:
+
+\begin{itemize}
+\item Number of risk: same as in the tables above
+\item Name of risk: same as in the tables above
+\item Occurred: did the risk occur (yes or no)?
+\item Details: what happened?
+\item Cause: brief analysis of why it happened
+\item Measures taken: what measures have been taken?
+\item Measure date: on what date were measures taken?
+\end{itemize}
+
+\subsection*{Risk review at project completion}
+
+Finally, a review of the risks will be held at the end of the project. This will address which risks came into effect and which did not. Additionally, changes to the perception of the risks will be documented at the start of the master thesis. 

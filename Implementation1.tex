@@ -1,0 +1,218 @@
+\section{SMART Goal 1: Setup of an Improved DQM Report}
+
+In Project 1, the groundwork for researching the reporting pipeline was completed. It provided the data lineage and described the underlying issues. Based on this work, an improved report was developed. Research was conducted on how to better highlight the relevant comparisons and help users identify the information more quickly. Additionally, the third-party data source, which was previously copied daily into an Excel file, was improved. The file was moved to SharePoint and is now updated whenever changes are made to \gls{AWSS3}, where it is made available to \gls{athena}. In addition, the selected data underwent a structural change, which is described at the end of this section.
+
+
+
+\subsection*{Update of data source}
+
+The first step towards the new report was to improve one of the data sources used by the report. Part of the data was retrieved from a third-party system by means of an Excel table. The file resided in a shared folder and was not initially archived. As this data source did not change and was required by both the existing SAC report, which had to remain operational, and the new Power BI report, it had to be made available in a way that was accessible to both tools. Changing from a shared folder, which was not accessible to Power BI, to SharePoint was therefore a major improvement, as it added versioning to the file. Furthermore, the \gls{DWHLSOPS} team has an existing method to transfer CSV data from SharePoint to \gls{athena}.
+
+Therefore, the destination of the Excel file was updated in collaboration with the business users responsible for the manual maintenance of the Excel file. With this change in place, the first data source was made available to Power BI, and all versions of it were from then on stored in \gls{AWSS3}.
+
+The groundwork for such an interface was already available, as the \gls{DWHLSOPS} team had implemented it previously \cite{Bosek2026_SharePointS3}. As can be seen in the following screenshot, the project team only had to set the file folder in the existing file structure, and the file was automatically transferred into \gls{AWSS3} and then made available for querying.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/SharePointToAWSS3.png}
+    \caption{Schematic overview of the interface used to transfer Excel files from Microsoft SharePoint to AWS S3 for automated ingestion into the reporting platform}
+    \label{fig:sharepoint_to_s3_interface}
+\end{figure}
+
+\subsection*{Setup of Power BI}
+
+Regarding the Power BI setup, Swiss Post has already defined DevOps pipelines, setup guides, and documentation supporting the installation of the application and the required infrastructure, for example, for using \gls{athena} as a data source.
+
+
+
+\subsubsection*{Setup}
+
+This setup consists of predefined templates defining areas such as report colour schemes, filter regions, and how permissions for reports are handled. Furthermore, the setup includes definitions of how to deploy reports and how to handle AWS Athena data sources. Thus, the setup was carried out in accordance with the guidelines defined by Swiss Post \cite{SwissPost2026_PowerBIIntro,SwissPost2026_PBITemplate,SwissPost2026_PowerBIConfluence}.
+
+
+
+\subsubsection*{Report definition}
+
+The initial report setup was adopted from the analysed SAC report, as the data that had to be checked remained the same. Therefore, the method followed by the business also remained unchanged, and the first tests of loading the data into Power BI produced the data in the same way. The first screenshot shows the report that was to be replaced. The second screenshot shows the first version of the same data in Power BI. Do take note that the second screenshot shows work in progress during development. It is not meant to be readable, as it contains, for example, no comparisons between relevant values, and the values are not formatted with thousands separators.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/Plain_DQM_WEST_19-12-2025_08-43-34.png}
+    \caption{Existing DQM report used by Swiss Post prior to the implementation of the redesigned Power BI solution}
+    \label{fig:existing_dqm_report}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./content/img/PowerBI_Start_SAC_Like.png}
+    \caption{Initial Power BI report designed to resemble the existing SAC report}
+    \label{fig:powerbi_start_sac_like}
+\end{figure}
+
+
+
+
+\subsubsection*{Initial data setup}
+
+As this was the first report developed by the project team, the initial implementation was carried out locally without deploying the report to \gls{microsoftFabric}. As a first report, the variety of available approaches for implementing features such as links between data sources naturally led to a report setup that performed some tasks twice, for example, linking the two data sources using both \gls{mQuery} and \gls{dax}. These deficiencies in the initial implementation were eliminated throughout the subsequent implementation steps of the report.
+
+
+
+
+\subsubsection*{Differences between local and cloud}
+
+Once the linkage of the two data sources was working and the data was displayed in the same way as in the SAC report, the Power BI report was published to the cloud. However, the report showed issues when loading data from \gls{athena}. Power BI automatically applied a transformation that attempted to cast a column containing date values into a date format. This resulted in issues with empty values.
+
+According to the initial research using \gls{copilot}, the issue could be resolved in Athena. However, discussions with the wider \gls{DWHLSOPS} team showed that similar issues had occurred for other team members. Therefore, before making changes in Athena, the possible solutions identified by the team were investigated. After consulting the team and checking the view in Athena, it became clear that the issue did not originate in Athena and therefore could not be resolved there. As the tests showed that the query ran correctly in Athena, the issue had to be located in the report. Since no proper checkpoints had been established up to this point, it was not possible to determine at which stage the applied data transformations caused the issue. Therefore, the report had to be recreated, and after each transformation, a test deployment was performed to verify that the data loaded and was displayed correctly in the cloud version. Finally, an error could not be found during the stepwise recreation. The most likely error source is the handling of a date data field that was transformed in the first version of the report.
+
+
+
+\subsubsection*{Model data setup}
+
+After the initial data from the \gls{SAC} report were integrated, the model contained information from two tables sourced from AWS. However, for the further checks, more data sources had to be included. Thus, the data model had to be refined by connecting the tables through the data model view rather than through \gls{mQuery} and \gls{dax}. Initially, only two tables had to be linked through the postal codes and dates. This new model setup was a requirement defined by the team, as was the separation of the measures into a dedicated table in Power BI. To highlight the initial setup, the four remaining tables are labelled here and in the next figure in the same way. The different tables are used for:
+
+\begin{itemize}
+    \item \textbf{CSV data:} The data from the CSV file represent the third-party event counts.
+    \item \textbf{Athena data:} These are the data from \gls{athena}, comprising the event counts compared in the report.
+    \item \textbf{Measures:} These are the calculations performed based on the CSV and Athena data.
+    \item \textbf{Date:} The table used for joining and filtering data based on the date.
+    \item \textbf{Postal code:} The table used for joining the data based on the postal code and for filtering it by location name.
+\end{itemize}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_DataModel_Initial.png}
+    \caption{Initial Power BI data model containing the core tables required for the first report prototype}
+    \label{fig:powerbi_data_model_initial}
+\end{figure}
+
+
+
+The data model was extended towards the end of this SMART Goal by integrating the full data model used by the business. This was mandatory to perform the final check, comparing the infoblock data in \gls{athena} with the \gls{aggregationTable} in Power BI. This aggregation table is a means of improving the response time for the most frequently used data points for reporting, which are in turn stored directly in Power BI rather than having to be queried from \gls{athena}. The aggregation table was set up by the \gls{ASTV} team and was used by the project team. The previously existing tables are shown with the same labels, while the additional tables have green labels. The high number of additional tables results from the implemented semantic model of another report. A semantic model is the data model of another report. By using the required green tables, the additional ones are automatically added to the existing data model. The additional tables are:
+
+\begin{itemize}
+    \item \textbf{Aggregation:} The data from the semantic model containing the aggregation counts.
+    \item \textbf{Date:} The table with the complete date information based on the star schema, imported together with the semantic model.
+    \item \textbf{Postal code:} The table with the complete postal code information based on the star schema, imported together with the semantic model.
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_DataModel_Final.png}
+    \caption{Final Power BI data model after integrating additional data sources, calculated tables, and supporting information}
+    \label{fig:powerbi_data_model_final}
+\end{figure}
+
+
+
+\subsubsection*{New visuals to support faster interpretation by stakeholders}
+
+As the task of this SMART goal was not only to copy the existing report but also to improve it, the content was made more visual and easier to interpret. Thus, having only one table containing all data would not improve the situation. However, according to the checks defined in Project 1, the thresholds were already known. These thresholds allowed warnings to be displayed. Therefore, the report was divided into three different views.
+
+\begin{itemize}
+    \item a detailed table containing the daily event counts and all relevant information
+    \item a traffic light dashboard showing whether the values satisfy the defined validation checks
+    \item a line chart showing the development of the values over time
+\end{itemize}
+
+The first visual is a detailed table showing the daily event counts per event and sorting centre. This allows the business to confirm completeness based on the absolute values. The table was enhanced with traffic light indicators showing green or red according to the defined thresholds.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_Table.png}
+\caption{Power BI table visualizing daily event counts together with data quality indicators}
+    \label{fig:powerbi_table}
+\end{figure}
+
+The second visual consists of traffic light indicators summarising the four data quality checks. For each check, the values are compared and displayed as green when the difference is below 1\% and at least 10'000 events are available. This allows users to quickly determine whether the latest values are valid, reducing the time required to decide whether further investigation is necessary.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_TrafficLights.png}
+    \caption{Power BI traffic light indicators summarising the four data quality checks}
+    \label{fig:powerbi_traffic_lights}
+\end{figure}
+
+
+The third visual is a line chart that allows users to identify recurring patterns in the data, for example, whether errors regularly occur on Fridays or Mondays. The centre line represents a 0\% deviation, while the dashed lines indicate the 1\% threshold. The four coloured lines represent the different events. Note: this graph appears to be time-oriented, but in fact each time block contains the list of sorting centres. This graphical approach was deliberately chosen to make it easy for business stakeholders to use.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_LineChart.png}
+    \caption{Power BI line chart showing historical data quality trends}
+    \label{fig:powerbi_line_chart}
+\end{figure}
+
+\subsection*{Scrum review}
+
+As the report was completing with the given features, it was important to retrieve the feedback of the stakeholders. This was done during a Scrum review of the \gls{ASTV} team. The report was shown together with some background information using a powerpoint presentation slides and a live demo. The steps in the review were as follows:
+
+\begin{itemize}
+    \item Presentation of the background, where did the project start from
+    \item Why this report matters
+    \item Change into Power BI showing the new report with visualisations
+    \item Perform live demo of how to be used report
+    \item Time for questions from team
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.80\textwidth]{./content/img/SprintReviewSlides.png}
+    \caption{Slides used during the Scrum review to present the implemented Power BI data quality monitoring solution and collect feedback for further development.}
+    \label{fig:sprint_review}
+\end{figure}
+
+
+
+\subsection*{Feedback after review}
+After the review further feedback was collected in separate sessions. The stakeholders showed similar reports to
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{./content/img/FeedbackMeeting_AfterReview.png}
+    \caption{Miro board documenting stakeholder feedback collected during a review meeting together with the implementation status of the resulting improvement actions.}
+    \label{fig:stakeholder_feedback_miro}
+\end{figure}
+
+\textbf{KEY POINT:} In total, the report was updated to the following dashboard. First, it allows the user to identify more quickly whether the data for a given day are complete by using the traffic lights. Second, users have a view of past inconsistencies per sorting centre using the line chart. Third, they can check all details in numerical form using the table at the bottom. Fourth, it provides filters at the top of the report that apply across all visuals, allowing users to filter by weekdays, date ranges, or selected sorting centres. Fifth, for clarity, each visual has a short description showing what is displayed to the user. These are written in small case so that they do not distract from the data itself.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/PowerBI_Final_Report.png}
+\caption{Final Power BI dashboard integrating the three implemented data quality visualisations and interactive report filters}
+    \label{fig:powerbi_final_dashboard}
+\end{figure}
+
+
+
+\subsubsection*{New view Athena}
+
+To highlight some of the testing and improvement loops during the development of the report, the following example describes a change to one of the data sources. During testing, the business pointed out that small differences in the number of events occurred between the new Power BI report and the data source it was intended to monitor. This issue was reported during a meeting between the project team and the product owner of the \gls{ASTV} team. The product owner identified that the new Power BI report was still using the old data source.
+
+While the data source remained largely the same, the data lineage changed slightly. Business and IT decided in late 2025 that the data should be consumed as a star schema to improve performance compared to the existing wide table. Consequently, the \gls{DQM} dashboard for message processing needed to follow this change in the data source. In order not to disturb the previous report, the data had to be gathered into a separate view in Athena. The separate view was also required in order to validate the new star schema \gls{infoblock}s rather than those of the previous wide table. Thus, separating the views was necessary to maintain clean, high-performing code, as adding the new query parts for the star schema to the wide table query would have slowed the query down and intertwined two different use cases.
+
+
+\subsubsection*{DevOps process}
+
+After the issue with the new view was reported, the DevOps process was started.
+
+To create a new view:
+\begin{itemize}
+    \item The developer first tests the query for the new view in \gls{athena}, confirming that it is valid.
+    \item Next, the developer navigates to GitHub, selecting the corresponding test repository for the account used.
+    \item A new branch is created, followed by a file containing the \texttt{CREATE VIEW} SQL statement.
+    \item After this, a build is attempted. If it is successful, the process continues; otherwise, the developer returns to the first step and fixes the issue.
+    \item If the build is successful, a pull request can be created, and the new branch merged.
+    \item Once this is completed, a branch is created in the production repository.
+    \item The build in the production environment must be successful.
+    \item Furthermore, a review by another developer is required.
+    \item Once both the build and the review are successful, the merge can be performed.
+\end{itemize}
+
+The full query for the new view can be found in Appendix \ref{newStarShemaDQMquery}.

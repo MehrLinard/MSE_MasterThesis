@@ -1,0 +1,276 @@
+CREATE OR REPLACE VIEW "sendungsverarbeitung_dqm_starschema_v" AS 
+WITH
+  key_to_plz AS (
+   SELECT
+     'VET' locationKey
+   , '196000' plz
+
+UNION ALL    SELECT
+     'HRK' locationKey
+   , '462150' plz
+
+UNION ALL    SELECT
+     'CAD' locationKey
+   , '659100' plz
+
+UNION ALL    SELECT
+     'WAL' locationKey
+   , '830000' plz
+
+UNION ALL    SELECT
+     'HAE' locationKey
+   , '462000' plz
+
+UNION ALL    SELECT
+     'UTZ' locationKey
+   , '720000' plz
+
+UNION ALL    SELECT
+     'PRA' locationKey
+   , '413400' plz
+
+UNION ALL    SELECT
+     'FRA' locationKey
+   , '852000' plz
+
+UNION ALL    SELECT
+     'DAI' locationKey
+   , '131000' plz
+
+UNION ALL    SELECT
+     'URD' locationKey
+   , '892000' plz
+
+UNION ALL    SELECT
+     'BCH' locationKey
+   , '503000' plz
+
+UNION ALL    SELECT
+     'RUE' locationKey
+   , '815000' plz
+
+UNION ALL    SELECT
+     'OMU' locationKey
+   , '307100' plz
+
+) 
+, plz_to_key AS (
+   SELECT
+     '196000' plz
+   , 'VET' locationKey
+
+UNION ALL    SELECT
+     '462150' plz
+   , 'HRK' locationKey
+
+UNION ALL    SELECT
+     '659100' plz
+   , 'CAD' locationKey
+
+UNION ALL    SELECT
+     '830470' plz
+   , 'WAL' locationKey
+
+UNION ALL    SELECT
+     '830000' plz
+   , 'WAL' locationKey
+
+UNION ALL    SELECT
+     '462000' plz
+   , 'HAE' locationKey
+
+UNION ALL    SELECT
+     '720000' plz
+   , 'UTZ' locationKey
+
+UNION ALL    SELECT
+     '413400' plz
+   , 'PRA' locationKey
+
+UNION ALL    SELECT
+     '852000' plz
+   , 'FRA' locationKey
+
+UNION ALL    SELECT
+     '131000' plz
+   , 'DAI' locationKey
+
+UNION ALL    SELECT
+     '892000' plz
+   , 'URD' locationKey
+
+UNION ALL    SELECT
+     '503000' plz
+   , 'BCH' locationKey
+
+UNION ALL    SELECT
+     '815000' plz
+   , 'RUE' locationKey
+
+UNION ALL    SELECT
+     '307100' plz
+   , 'OMU' locationKey
+
+) 
+, mp_discharged_raw AS (
+   SELECT
+     CAST(DATE_ADD('hour', -6, discharged.timestamp AT TIME ZONE 'Europe/Zurich') AS DATE) Posttag
+   , discharged.sortingunit.locationKey locationKey
+   , discharged.sourceId sourceId
+   FROM
+     curated_lsops.mailpiece_discharged_v2
+   WHERE (1 = 1)
+) 
+, mp_discharged AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey IN ('CAD', 'HRK', 'PRA', 'UTZ', 'VET', 'WAL')) AND (NOT (sourceId LIKE 'w%')) AND (NOT (sourceId LIKE 'W%')) AND (NOT (trim(BOTH FROM sourceId) = ''))) THEN 1 WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 ELSE 0 END) relevant_discharged
+   FROM
+     mp_discharged_raw
+) 
+, discharged_agg AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , SUM(relevant_discharged) num_discharged
+   FROM
+     mp_discharged
+   GROUP BY 1, 2
+) 
+, mp_submitted_raw AS (
+   SELECT
+     CAST(DATE_ADD('hour', -6, submitted.timestamp AT TIME ZONE 'Europe/Zurich') AS DATE) Posttag
+   , submitted.sortingunit.locationKey locationKey
+   , submitted.sortingProcess sortingProcess
+   FROM
+     curated_lsops.mailpiece_submitted_v2
+) 
+, mp_submitted AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey = 'HRK') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'VET') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'CAD') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'WAL') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'UTZ') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'PRA') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 ELSE 0 END) relevant_submitted
+   FROM
+     mp_submitted_raw
+) 
+, submitted_agg AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , SUM(relevant_submitted) num_submitted
+   FROM
+     mp_submitted
+   GROUP BY 1, 2
+) 
+, mp_coded_raw AS (
+   SELECT
+     coded.sortingCycleId sortingCycleId
+   , CAST(DATE_ADD('hour', -6, coded.timestamp AT TIME ZONE 'Europe/Zurich') AS DATE) Posttag
+   , coded.sortingunit.locationKey locationKey
+   , coded.sortingProcess sortingProcess
+   FROM
+     curated_lsops.mailpiece_coded_v2
+) 
+, mp_coded AS (
+   SELECT DISTINCT
+     sortingCycleId sortingCycleId
+   , Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey = 'HRK') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'VET') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'CAD') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'WAL') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'UTZ') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'PRA') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 ELSE 0 END) relevant_coded
+   FROM
+     mp_coded_raw
+) 
+, coded_agg AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , SUM(relevant_coded) num_coded
+   FROM
+     mp_coded
+   GROUP BY 1, 2
+) 
+, mp_destinationAssigned_raw AS (
+   SELECT
+     destinationAssigned.sortingCycleId sortingCycleId
+   , CAST(DATE_ADD('hour', -6, destinationAssigned.timestamp AT TIME ZONE 'Europe/Zurich') AS DATE) Posttag
+   , destinationAssigned.sortingunit.locationKey locationKey
+   , destinationAssigned.sortingParameters.sortingProcess sortingProcess
+   FROM
+     curated_lsops.mailpiece_destinationassigned_v2
+) 
+, mp_destinationAssigned AS (
+   SELECT DISTINCT
+     sortingCycleId sortingCycleId
+   , Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey = 'HRK') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'VET') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'CAD') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'WAL') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'UTZ') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'PRA') AND (sortingProcess = 'AUTOMATIC')) THEN 1 WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 ELSE 0 END) relevant_destinationAssigned
+   FROM
+     mp_destinationAssigned_raw
+) 
+, destinationassigned_agg AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , SUM(relevant_destinationAssigned) num_destinationassigned
+   FROM
+     mp_destinationAssigned
+   GROUP BY 1, 2
+) 
+, sendungsverarbeitung_raw AS (
+   SELECT
+     post_day posttag
+   , plz_to_key.locationKey locationKey
+   , dim_sor.sortierprozess_typ sortierprozess_typ
+   FROM
+     (((reporting_lsops.fact_sendungsverarbeitung_v sndv
+   LEFT JOIN reporting_lsops.dim_sortierung_v dim_sor ON (sndv.sortierung_hash_key = dim_sor.sortierung_hash_key))
+   LEFT JOIN reporting_lsops.dim_zentrum_v dim_zent ON (sndv.zentrum_hash_key = dim_zent.zentrum_hash_key))
+   LEFT JOIN plz_to_key ON (plz_to_key.plz = dim_zent.zentrum_plz))
+) 
+, sendungsverarbeitung AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , (CASE WHEN ((locationKey = 'HRK') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'VET') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'CAD') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'WAL') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'UTZ') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN ((locationKey = 'PRA') AND (sortierprozess_typ = 'AUTOMATIC')) THEN 1 WHEN (locationKey IN ('BCH', 'RUE', 'OMU')) THEN 1 WHEN (locationKey IN ('HAE', 'FRA', 'DAI', 'URD')) THEN 1 ELSE 0 END) relevant_sva
+   FROM
+     sendungsverarbeitung_raw
+) 
+, sva_agg AS (
+   SELECT
+     Posttag Posttag
+   , locationKey locationKey
+   , SUM(relevant_sva) num_sva
+   FROM
+     sendungsverarbeitung
+   GROUP BY 1, 2
+) 
+, device_stats AS (
+   SELECT
+     Posttag Posttag
+   , sorting_unit_location_key locationKey
+   , sum(content_value) amount
+   FROM
+     "reporting_lsops"."anlagestatistik_curated_v"
+   WHERE ((1 = 1) AND ((1 = 0) OR ((model = 'BEUMER') AND (content_type = 'INDUCTION') AND (content_value_index = 1))))
+   GROUP BY 1, 2
+) 
+SELECT
+  submitted.Posttag Posttag
+, submitted.locationKey locationKey
+, key_to_plz.plz plz
+, discharged.num_discharged num_discharged
+, submitted.num_submitted num_submitted
+, coded.num_coded num_coded
+, destinationassigned.num_destinationassigned num_destinationassigned
+, sva.num_sva num_sva
+, dvs.amount num_stats
+FROM
+  ((((((submitted_agg submitted
+INNER JOIN key_to_plz ON ((1 = 1) AND (submitted.locationKey = key_to_plz.locationKey)))
+INNER JOIN discharged_agg discharged ON ((1 = 1) AND (submitted.Posttag = discharged.Posttag) AND (submitted.locationKey = discharged.locationKey)))
+INNER JOIN coded_agg coded ON ((1 = 1) AND (submitted.Posttag = coded.Posttag) AND (submitted.locationKey = coded.locationKey)))
+INNER JOIN destinationassigned_agg destinationassigned ON ((1 = 1) AND (submitted.Posttag = destinationassigned.Posttag) AND (submitted.locationKey = destinationassigned.locationKey)))
+INNER JOIN sva_agg sva ON ((1 = 1) AND (submitted.Posttag = sva.Posttag) AND (submitted.locationKey = sva.locationKey)))
+LEFT JOIN device_stats dvs ON ((1 = 1) AND (submitted.Posttag = dvs.Posttag) AND (submitted.locationKey = dvs.locationKey)))
+WHERE ((1 = 1) AND (submitted.locationKey IN ('HRK', 'VET', 'HAE', 'CAD', 'WAL', 'UTZ', 'PRA', 'FRA', 'DAI', 'URD', 'BCH', 'RUE', 'OMU')))
