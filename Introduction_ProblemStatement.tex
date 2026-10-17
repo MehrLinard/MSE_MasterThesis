@@ -2,35 +2,43 @@
 
 \section{Problem Statement}
 
-Todo,
-Future Roland will have to check this content
+The two key problems addressed in this research initiative are as follows. First, data quality in this area of Swiss Post has so far been handled in an ad hoc manner, without formal definitions, frameworks, or an agreed set of KPIs. Second, data quality is handled manually by the business at a \gls{highlevel} rather than being automated by the IT department. Both of these problems lead to issues not being detected early and to longer reaction times. As a further consequence, delays in data processing are not identified and targeted for systematic resolution, which in turn reduces management confidence in the reports. All of this prevents continuous improvement, as the checks were neither documented nor stored in a way that allowed follow-up analysis or structured refinement.
 
 
-The two key problems addressed in this series of projects are, first, that data quality in this area of Swiss Post has so far been handled in an ad hoc manner, without formal definitions, frameworks, or an agreed set of KPIs; and second, that data quality is handled manually by the business at a \gls{highlevel} rather than being automated by the IT department. Both of these problems lead to issues not being detected early and to longer reaction times. As a further consequence, delays in data processing are not identified and targeted for systematic resolution, which in turn reduces management confidence in the reports. All of this prevents continuous improvement, as the checks were neither documented nor stored in a way that allowed follow-up analysis or structured refinement. 
 
 \subsection*{Thesis update}
-While this initial description was valid for the course of the previous projects, by the time the master thesis is started, the situation changed. At this thesis builds ontop of the achievements of both works, their problem statements must be stated, while the more detailed problem statement of the master thesis is in the research chapter.
+Up until the start of this project, however, much of the initial situation had changed. Data quality was handled both within Swiss Post, which was searching for company-wide solutions, and within the team which is closely followed in this project. In addition, the two preceding projects added to the initiative in the following way:
 
-Project 1
-Project 2
+\textbf{Project 1: }Researched the basis of data quality and data availability management. Furthermore, it described the current steps taken by Swiss Post to handle data quality within the environment described in the above background section. Finally, it laid out a path for implementing a data quality check in a rule-based check tool \cite{Roccaro2026_Project1}.
 
+Or, as a quote from the document's problem statement:
 
-
-
-Update and upcomming
-However, during the course of the project XXX and YYY  preceeding the master thesis the groundwork required was built.
-
-* Project XXX : Ich brauche ein passendes Problem Statement des Projekt 1, Was ist der status der Schweizerischen Post betreffend DQM auf Reporting layer, Was sind die definitionen der Forschung zum Thema
-
-* Project YYY : Ich brauche noch ein passendes Problem Statement zum Projekt 2, Wie kann die manuelle Datenprüfung der Stakeholder durch bessere Reportings vereinfacht werden.
-1. changing reporting data pipelines prompt for adaption of their dqm checks
-2. 
-
-
-
-* Master Thesis
+\begin{quote}
+The \gls{DQ} and \gls{DA} reporting at
+\gls{DWHLSOPS} is in its infancy, both
+in regards to data quality as well as automation.
+This shows itself as: When reports are not executed
+or contain missing values, IT and the business are
+not automatically alerted. Due to the lack of
+automation, no data is gathered on the number of
+errors and outages.
+\end{quote}
 
 
-Following research question is the core of this master thesis:
-•	To what extent can data quality in analytical reporting at DWH LS OPS be automatically validated at the reporting layer?
+\textbf{Project 2: }This research helped the stakeholders by providing them with an updated view of the data described in Project 1. This was required due to the ongoing changes in the data structure. The solution provided was introduced during a Scrum review meeting and put into production. In addition, the project also tested the feasibility of data quality monitoring using repeated counts \cite{Roccaro2026_Project2}.
+
+
+Or, as a quote from the document's problem statement:
+
+\begin{quote}
+Based on this groundwork, the next logical step was to adapt the existing reports to the new reporting platforms. However, in the meantime, the reporting data pipelines were updated. The old data pipelines remained available, but all further updates were performed only on the new pipelines. As a result of this development, the focus of this project shifted towards supporting these changes and helping the team to improve the monitoring and assessment of the existing data. Furthermore, an important objective was to establish the groundwork for the upcoming master's thesis by evaluating whether the available tools could serve as the basis for a use case to be explored in greater depth during the thesis.
+\end{quote}
+
+
+\subsection*{Current problem statement}
+
+Finally, the current problem statement addresses the next but not final step in the research initiative. The problem statement will be described in more detail within the research chapter. At the start of the project, it was defined as:
+
+\textbf{To what extent can data quality in analytical reporting at DWH LS OPS be automatically validated at the reporting layer?}
+
 
