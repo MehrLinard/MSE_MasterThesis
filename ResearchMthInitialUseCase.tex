@@ -1,0 +1,42 @@
+
+
+
+\section{Initial Use Case, To-Do}
+
+The initial use case was defined early in the project, on 18.10.2026, to serve as a foundation for future research.
+First, a definition of what the use case must describe is provided. Then, the initial use case itself is described,  which may be refined during the upcoming research process.
+
+\begin{itemize}
+    \item \textbf{Context:} In which company and industry sector does the use case take place? More specifically, which team or business process is involved?
+
+    \item \textbf{Problem:} What problem is addressed by the use case, and what are its effects on the actors affected by it?
+
+    \item \textbf{Actors:} Who is directly addressing the problem? Who contributes to the use case by providing definitions, testing, or needing to adapt their way of working?
+
+    \item \textbf{Goal:} What is the ultimate goal of the use case, and what should be achieved?
+
+    \item \textbf{Boundaries:} What is in and out of the scope of the use case? What may be strictly excluded?
+
+    \item \textbf{High-level scenario:} A high-level description of the scenario in which the use case is situated. What triggers the use case, and what results are expected?
+\end{itemize}
+
+
+
+
+\subsection*{Context}
+The use case is situated within Swiss Post, in the area of its postal services. More specifically, it concerns the centralised sorting infrastructure and, looking more closely, only the data that is retrieved and stored for analytical reporting by the DWH LS OPS team.
+
+\subsection*{Problem}
+The problem addressed is that there is no automated testing of data quality and availability for analytical reporting. The checks are currently performed ad hoc by business stakeholders rather than being performed automatically by the IT team that provides the data to them. This situation leads to delayed response times when data is missing or incorrect.
+
+\subsection*{Actors}
+The main actors are the members of the academic project team working on the use case. Furthermore, the business stakeholders will use and test the solution for correctness, while the IT stakeholders will run the solution and benefit from being more responsive to data quality and availability problems. The IT architects will define the architecture that must be respected.
+
+\subsection*{Goal}
+The goal is to provide an improvement for the business stakeholders and IT, or to show how their current problem can be addressed and alleviated in a follow-up to this project.
+
+\subsection*{Boundaries}
+This project is strictly limited to the context and problem described within this use case. Its solution is not planned for the whole of Swiss Post. Also, the solution provided will be limited to one use case, which may be solved in different ways in order to compare the viability of different approaches.
+
+\subsection*{High-level scenario}
+Swiss Post currently checks the data quality of its analytical reporting data by performing daily checks after each postal day. A postal day starts at 06:00 in the morning and ends at 05:59 the next day. As the sorting equipment should be free of parcels at the end of each postal day, the number of parcels that have been put onto the machines should be equal to the number removed from them. Thus, the number of parcels within the analytical reporting data should also be the same. If the numbers differ by more than a defined threshold of 1 percent when at least 10'000 parcels have been sorted, the data is considered incorrect and to have data quality or availability issues. These issues are then reported to IT, which has to run checks to determine why the data for that day is incorrect.
