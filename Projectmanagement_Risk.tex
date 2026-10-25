@@ -1,9 +1,5 @@
-\section{Risk management, TODO}
+\section{Risk management}
 \label{ProjMgmtRisk}
-
-Todo, Future Roland will have to check and eventually re-write here...
-
-etc...
 
 
 In this section, the approach taken to risk management is described. Risk management is essential to the success of any project, as it enables planning for and potentially preventing dangers that may occur during its course. When such risks are not handled, they can endanger the progress of the project. The risk management process consists of several steps \cite{RiskmgmtWikipedia}. First, the risks are identified and classified as to their nature. Next, they are weighted according to how they might impact this project; this includes a consideration of the probability that the risks may arise, and the level of damage that may occur. After this, the specific handling of each risk is defined; these are the concrete measures that are taken to lower how the risk may impact the project. Finally, ongoing monitoring and review of the risks is carried out on a regular basis throughout the project.
@@ -95,7 +91,11 @@ After carrying out the initial identification and classification, it is not alwa
     \item \textbf{Red} Very High
 \end{itemize}
 
-The previous table results into the following heatmap which lets the reader more easily grasp which items are considered more dangerous to the project.
+
+
+The previous table results in the following heat map, which allows the reader to more easily grasp which items are considered more dangerous to the project. It shows that four risks are classified as red and therefore require special attention. How these risks, as well as the others, are addressed is described in the following section.
+
+
 
 \begin{table}[H]
     \centering
@@ -104,94 +104,23 @@ The previous table results into the following heatmap which lets the reader more
     \label{tab:mth_initial_risk_assessment}
 \end{table}
 
-As a reference to the continued risk management over the course of the entire initiative, the following heatmap shows the status at the beginning of the second project. This allows to see the different evaluations of some risks.
-
-\begin{table}[h]
-\centering
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.6}
-\label{tab:risks_sev_likely}
-% 7 columns total: [1] merged "Severity" column + [2] row labels + [5] severity levels
-\begin{tabular}{|C{1.3cm}|C{2.8cm}|*{5}{C{2.6cm}|}}
-
-% --- Top black title row: span first two columns for title, last five for "Severity" header label ---
-
-\hline
-\rowcolor{black}
-\multicolumn{2}{|c|}{\color{white}\bfseries Risk Matrix} &
-\multicolumn{5}{c|}{\color{white}\bfseries Severity} \\
-\hline
-
-% merged first column (6 rows high)
-
-\multirow{6}{*}{\cellcolor{white}{\color{black}\bfseries \rotatebox{90}{Severity}}}
-  & \cellcolor{riskgrey}{}  % empty label cell
-  & \cellcolor{riskgrey}\bfseries 1: Insignificant
-  & \cellcolor{riskgrey}\bfseries 2: Minor
-  & \cellcolor{riskgrey}\bfseries 3: Moderate
-  & \cellcolor{riskgrey}\bfseries 4: Major
-  & \cellcolor{riskgrey}\bfseries 5: Severe \\
-\hline
-
-% ---- Row 1 ----
-& \cellcolor{riskgrey}\bfseries 5: Almost Certain
-& \cellcolor{riskyellow}{\bfseries 15\; 17\; 19\;}
-& \cellcolor{riskorange}{\bfseries 11\; 14\;}
-& \cellcolor{riskred}{\bfseries 20\;}
-& \cellcolor{riskred}{}
-& \cellcolor{riskred}{} \\
-\hline
-
-% ---- Row 2 ----
-& \cellcolor{riskgrey}\bfseries 4: Likely
-& \cellcolor{riskyellow}{\bfseries}
-& \cellcolor{riskorange}{\bfseries 16}
-& \cellcolor{riskorange}{\bfseries 9}
-& \cellcolor{riskred}{\bfseries 8}
-& \cellcolor{riskred}{} \\
-\hline
-
-% ---- Row 3 ----
-& \cellcolor{riskgrey}\bfseries 3: Possible
-& \cellcolor{riskgreen}{} 
-& \cellcolor{riskyellow}{} 
-& \cellcolor{riskorange}{\bfseries 5}
-& \cellcolor{riskorange}{\bfseries 4\; 6\; 10\; 12\;}
-& \cellcolor{riskred}{} \\
-\hline
-
-% ---- Row 4 ----
-& \cellcolor{riskgrey}\bfseries 2: Unlikely
-& \cellcolor{riskgreen}{}
-& \cellcolor{riskgreen}{\bfseries 1}
-& \cellcolor{riskyellow}{\bfseries 2\; 7}
-& \cellcolor{riskyellow}{\bfseries 3}
-& \cellcolor{riskorange}{} \\
-\hline
-
-% ---- Row 5 ----
-& \cellcolor{riskgrey}\bfseries 1: Rare
-& \cellcolor{riskgreen}{}
-& \cellcolor{riskgreen}{}
-& \cellcolor{riskgreen}{}
-& \cellcolor{riskgreen}{}
-& \cellcolor{riskyellow}{} \\
-\hline
-
-\end{tabular}
 
 
+\subsubsection*{Previous heat map}
+As a reference for the continued risk management over the course of the entire initiative, the following heat map shows the status at the beginning of the second project. This illustrates that, over the course of the initiative, risks have been added and are now evaluated differently by the project team.
 
-
-
-\caption{Risk Matrix (Likelihood $\times$ Severity)}
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./content/img/Mth/ProjectManagement/Risks_Mth_Project1.png}
+    \caption{Risk matrix from Project 1.}
+    \label{tab:risks_sev_likely}
 \end{table}
 
-As can be seen in the Risk Heat Map, one risk is classified as red and therefore requires special attention, namely, the unavailability of the main project staff. How this risk, as well as the others, is addressed will be described in the following section.
+
 
 \subsection*{Risk strategies and mitigation strategies}
 
-Risk strategies are the high level approaches to dealing with the risks, and the risk mitigations are the concrete plans developed to manage identified risks. In the following table, an overview of the individual risks is provided, including their selected treatment and a brief justification. BNaturally, it is neither practical nor feasible to completely eliminate every risk; therefore, based on likelihood and severity, as well as the team’s \gls{riskappetite}, each risk was assigned one of the following strategies:
+Risk strategies are the high level approaches to dealing with the risks, and the risk mitigations are the concrete plans developed to manage identified risks. In the following table, an overview of the individual risks is provided, including their selected treatment and a brief justification. Naturally, it is neither practical nor feasible to completely eliminate every risk; therefore, based on likelihood and severity, as well as the team’s \gls{riskappetite}, each risk was assigned one of the following strategies:
 
 \begin{itemize}
 \item \textbf{Accept} – the risk and its potential impact are acknowledged, but no measures are taken
@@ -220,26 +149,31 @@ Risk strategies are the high level approaches to dealing with the risks, and the
 \bottomrule
 \endlastfoot
 
-1  & Unclear question & The topic description is too vague or contains too many goals & Reduce & Define SMART goals \\
-2  & Unclear goals & The goals are not clearly defined or cannot be measured & Reduce & Describe which goals are part of scope \\
-3  & Insufficient expertise & Not knowing required tools or programming languages & Accept &  \\
-4  & Underestimated time/effort & Some tasks take more time than initially expected & Accept & Document end of tasks in Miro calendar; re-evaluate after project \\
-5  & Other study projects & Other classes demand more attention, less time for project & Accept & Use minimum time for projects/classes \\
-6  & Work projects & Other projects at work demand urgent attention, less time for project & Reduce & Reduction of risk due to starting early; defining blockers for study work \\
-7  & Procrastination & Tasks are pushed back & Reduce & Start early \\
-8  & Unavailability of main project staff & One or multiple project staff are not available & Accept & Document in case it happens \\
-9  & Unavailability of advisor & The advisor is not available & Transfer & Advisor to define emergency replacement \\
-10 & Software Version/Library/Dependency & Mismatch in versions; new library versions break the code & Accept & Run the code multiple times; have test cases (e.g., unit tests) \\
-11 & Hardware is damaged & The laptops or other material are damaged and need repairs or replacement & Reduce & Second laptop; code on GitHub/Miro/Teams/Outlook \\
-12 & Data related & Bias in data; not enough data & Accept &  \\
-13 & Not reproducible work & The work provided cannot be reproduced & Reduce & Document steps; upload versions on GitHub \\
-14 & Plagiarism or wrong citation & Unallowed or undeclared usage of sources & Reduce & Use citation; bibliography \\
-15 & Copyright & Used literature or materials which are restricted & Accept &  \\
-16 & Bad communication with stakeholder or advisor & Advisor or stakeholders are not heard; their inputs are ignored & Reduce & Weekly advisor meetings \\
-17 & Insufficient exchange with external partners & External partners do not react, are delayed, or communication towards them is late or poor & Reduce & Stakeholders in Scrum team \\
-18 & Unforeseen family crisis & Unexpected crisis in family & Accept & To be documented in Miro calendar in case it happens \\
-19 & General force majeure & Events which cannot be influenced are very rare and very disruptive & Accept & To be documented in Miro calendar in case it happens \\
-20 & Unknown process & Events occurring during the project can block its execution or, in the worst case, lead to its cancellation & Reduce & Always start administrative processes between Swiss Post and BFH without delay. Always send reminders after three weeks at the latest. \\
+
+1 & Goal & Unclear question & Reduce & Define SMART goals. \\
+2 & Goal & Unclear goals & Reduce & Describe which goals are within the scope. \\
+3 & Time and Organisation & Insufficient expertise & Accept & Learning is part of the process, but additional time needs to be planned. \\
+4 & Time and Organisation & Underestimated time/effort & Reduce & Phases and milestones are set up as progress checks. \\
+5 & Time and Organisation & Other study projects & Accept & Use minimal time for other projects/classes. \\
+6 & Time and Organisation & Work projects & Reduce & Reduce the risk by starting early and defining blockers for study work. \\
+7 & Time and Organisation & Procrastination & Reduce & Start early. \\
+8 & Human Resources & Unavailability of main project staff, e.g. due to illness & Reduce & This happened before the start. Provide the contact details of the partner working at BFH and document the situation in case it happens again. \\
+9 & Human Resources & Unavailability of advisor, e.g. due to illness or accident & Transfer & The advisor should define an emergency replacement. \\
+10 & Tech and Infrastructure & Software version/library/dependency & Accept & Run the code multiple times and use test cases, e.g. unit tests. \\
+11 & Tech and Infrastructure & Hardware is damaged & Reduce & Second laptop; code and documentation on GitHub, Miro, Teams, and Outlook. \\
+12 & Data and Research & Data related & Accept & No preparation is planned. \\
+13 & Data and Research & Not reproducible work & Reduce & Document major steps, upload versions of the document to GitHub, and use Kanban in Miro to document tasks. \\
+14 & Ethical and Legal & Plagiarism or incorrect citation & Reduce & Use citations and a bibliography. \\
+15 & Ethical and Legal & Copyright & Accept & Declare sources in the bibliography. For Swiss Post sources, use only public documents. \\
+16 & Communication and Cooperation & Bad communication with stakeholders or advisor & Reduce & Weekly advisor meetings (Jour Fixe). \\
+17 & Communication and Cooperation & Insufficient exchange with external partners & Reduce & Include stakeholders in the Scrum team. \\
+18 & Force Majeure & Unforeseen family crisis & Accept & Document it in the Miro calendar if it happens. \\
+19 & Force Majeure & General force majeure & Accept & Document it in the Miro calendar if it happens. \\
+20 & Unknown Process & The required management process is unknown & Reduce & Projects 1 and 2 established many of the required steps. However, it is still likely that something new may arise. \\
+21 & Communication and Cooperation & Required resources are not available when needed, or responsibilities are unclear & Reduce & Schedule calls early and search for external resources before starting work blocks. \\
+22 & Organisational & Changes pushed by the organisation & Accept & Change is constant; discussions with teams are required. \\
+23 & Data and Research & Insufficient scientific contribution & Reduce & Provide continuous feedback and hold weekly calls to identify missing contributions early. \\
+
 \end{longtable}
 
 \subsection*{Implementation of risk mitigation strategies}
@@ -268,25 +202,30 @@ Identifying the key risks is the first step in the overall risk management appro
 \bottomrule
 \endlastfoot
 
-1  & Unclear question & In the research section SMART goals have been setup & 01.03.2026 \\
-2  & Unclear goals & The introduction describes which parts of the initial project description are part of this document &  \\
-3  & Insufficient expertise & Accept: Nothing done & 01.03.2026 \\
-4  & Underestimated time/effort & Accept: Nothing done & 01.03.2026 \\
-5  & Other study projects & Accept: Nothing done & 01.03.2026 \\
-6  & Work projects & Added blockers in Work calendar, Work account invited to meeting series (Jour Fixe); study account: set blockers on weekend; researched with ChatGPT for optimal/minimal study plan & 01.03.2026 \\
-7  & Procrastination & Work on the project started 25.09.2025 when attending data quality meeting at AWS, being part of AWS Modernisation initiative & 01.03.2026 \\
-8  & Unavailability of main project staff (e.g., due to illness) & Contact of partner provided in Teams and added to Miro board & 01.03.2026 \\
-9  & Unavailability of advisor (e.g., due to illness, accident, etc.) & Asked for contact, confirmed to be Jürgen Vogel & 01.03.2026 \\
-10 & Software Version/Library/Dependency & Accept: Nothing done & 01.03.2026 \\
-11 & Hardware is damaged & Second laptop is available at home; the LaTeX document is a GitHub project; documentation is on Miro. Work laptop can also be used for most tasks, but has no LaTeX installed & 01.03.2026 \\
-12 & Data related & Accept: Nothing done & 01.03.2026 \\
-13 & Not reproducible work & GitHub project for LaTeX document & 01.03.2026 \\
-14 & Plagiarism or wrong citation & JabRef used as GUI for bibliography; Biber used for build & 01.03.2026 \\
-15 & Copyright & Accept: Nothing done & 01.03.2026 \\
-16 & Bad communication with stakeholder or advisor & Jour Fixe setup & 01.03.2026 \\
-17 & Insufficient exchange with external partners & Keep exchange channels active when changing team & 01.03.2026 \\
-18 & Unforeseen family crisis & Accept: Nothing done & 01.03.2026 \\
-19 & General force majeure & Accept: Nothing done & 01.03.2026 \\
+
+1 & Unclear question & Reduce: SMART goals have been defined in the research section. & 24.10.2026 \\
+2 & Unclear goals & Reduce: The introduction describes which parts of the initial project description are included in this document. & 24.10.2026 \\
+3 & Insufficient expertise & Accept: Nothing done. & 24.10.2026 \\
+4 & Underestimated time/effort & Reduce: Phases and milestones are set up as progress checks. & 24.10.2026 \\
+5 & Other study projects & Accept: Nothing done. & 24.10.2026 \\
+6 & Work projects & Reduce: Discussed availability with the other team, added blockers to the work calendar, invited the work account to the Jour Fixe meeting series, set weekend blockers in the study account, and researched optimal or minimal study plans with ChatGPT. & 24.10.2026 \\
+7 & Procrastination & Reduce: Work on the project started on 14.09.2026, with the first meeting with the expert in the same week. & 24.10.2026 \\
+8 & Unavailability of main project staff, e.g. due to illness & Reduce: The partner's contact details were provided in Teams and added to the Miro board. & 24.10.2026 \\
+9 & Unavailability of advisor, e.g. due to illness or accident & Transfer: Asked for a contact; Jürgen Vogel was confirmed as the replacement. & 24.10.2026 \\
+10 & Software version/library/dependency & Accept: Nothing done. & 24.10.2026 \\
+11 & Hardware is damaged & A second laptop is available at home. The LaTeX document is a GitHub project, and documentation is stored in Miro. The work laptop can also be used for most tasks but does not have LaTeX installed. & 24.10.2026 \\
+12 & Data related & Accept: Nothing done. & 24.10.2026 \\
+13 & Not reproducible work & Reduce: GitHub project for the LaTeX document. & 24.10.2026 \\
+14 & Plagiarism or incorrect citation & Reduce: JabRef is used as a GUI for the bibliography, and Biber is used for compilation. & 24.10.2026 \\
+15 & Copyright & Accept: Nothing done. & 24.10.2026 \\
+16 & Bad communication with stakeholders or advisor & Reduce: Jour Fixe has been set up. & 24.10.2026 \\
+17 & Insufficient exchange with external partners & Reduce: Maintain communication channels even when changing teams. & 24.10.2026 \\
+18 & Unforeseen family crisis & Accept: Nothing done. & 24.10.2026 \\
+19 & General force majeure & Accept: Nothing done. & 24.10.2026 \\
+20 & The required management process is unknown & Reduce: It is still important to address new requirements as soon as they appear. & 24.10.2026 \\
+21 & Required resources are not available when needed, or responsibilities are unclear & Reduce: Search for external resources before starting your own work. & 24.10.2026 \\
+22 & Changes pushed by the organisation & Accept: Exchange information with teams. & 24.10.2026 \\
+23 & Insufficient scientific contribution & Reduce: Addressed as part of the Jour Fixe. & 24.10.2026 \\
 
 \end{longtable}
 
