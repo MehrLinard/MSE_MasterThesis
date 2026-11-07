@@ -1,0 +1,57 @@
+
+
+
+
+\section{What are data quality checks?}
+\label{ResearchWhatIsDQ}
+People using the same data can often be in disagreement about what \gls{DQ} means for that data \cite{DQwikipedia}. Data quality can be defined as data being of high quality when it correctly represents the real-world construct it refers to, making it fit for decision-making and planning. To establish a common understanding of data quality, official frameworks have been defined \cite{enwikiISO8000}. These frameworks have specific characteristics, as described here.
+
+\subsection*{Rule based}
+A data quality check tests data against rules, expectations, or thresholds and thereby attempts to detect issues. If issues are identified, they are not corrected by the data quality check itself but are instead made visible.
+
+\subsection*{Use case driven}
+The type of check applied depends on the use case and business context. Data quality checks must be purposeful for the specific use case and are explicitly defined. For example, a threshold may be defined with an exact value, such as the parcel width being a maximum of one meter on automatic sorting machines.
+
+\subsection*{Manual and automated checks}
+Data quality can be assessed manually or through automated checks; both approaches are valid. A manual check is performed by skilled staff and requires their full attention during execution. It includes multiple steps, such as gathering data from different sources and performing aggregations. This makes manual checks slow and difficult to scale; however, they are flexible and can be adapted quickly to changes. In contrast, automated checks are performed by systems on a defined schedule without staff intervention. They are therefore repeatable and deliver consistent results. A manual check can be used to verify data quality once; however, when checks need to be repeated regularly, they should be automated.
+
+\subsection*{Dimensions}
+Data quality is measured across multiple dimensions such as:
+\begin{itemize}
+    \item \textbf{Completeness}: When mandatory fields are present, data is considered complete
+    \item \textbf{Accuracy}: How closely the data reflects the real world
+    \item \textbf{Consistency}: Whether the same data is consistent across systems
+    \item \textbf{Timeliness}: Whether the data is available when it is needed or only at a later time
+\end{itemize}
+This is only a subset of dimensions that can be considered in data quality checks. These dimensions have, however, already been defined at Swiss Post. Therefore, their further definition is not useful and is not part of this project \cite{iso_iec_25012}.
+
+\subsection*{Detection and correction}
+In \gls{DQM} detection and correction of errors is strictly different. In this project, the focus is on the detection of data quality issues. The correction of these issues is out of scope of this work.
+
+\subsection*{Checks on data lifecycle}
+\label{ResearchDataQChecksOnDataLifecycle}
+The placement of data quality checks on the data lineage and reporting pipeline is an important decision in the process. The different stages are data ingestion or generation, storage and staging, processing and transformation, and reporting and consumption. Running data quality checks at the ingestion level provides only limited checking possibilities, such as structural validity and schema compliance. At the storage and staging level, consistency, deduplication, and format correctness can be checked. Moving further to the processing and transformation stage, checks on joins and aggregations can be performed, as well as plausibility checks of derived values. On the reporting layer, cross report consistency can be checked. In general, checks on earlier layers are more limited, while the processing and transformation layer allows the most meaningful and effective checks.
+
+
+
+\section{What are data availability checks?}
+\label{ResearchWhatIsDA}
+A \gls{DA} check verifies that a defined dataset exists, whether it is available on time, and whether it is accessible. Such checks are binary: the dataset is either available or not.
+
+\subsection*{Distinction to data quality checks}
+While a data quality check evaluates the correctness of data, a data availability check determines whether the data is available. Data can therefore be available but incorrect, or correct but unavailable. For example, data may be available for a report at 07:00, which is the required availability time, but the delivered data may be incorrect. Conversely, the same report could be available at 07:15 with correct data; however, it would not be available within the defined time frame.
+
+\subsection*{Temporal dependency}
+Data availability is always time dependent. Data can be available at the defined time or not. This requires clear definitions of which data must be available and at what time. In order to check temporal availability, the relevant timeframe must be defined. For example, a report may need to be available at 07:00. However, the data used by this report may be expected earlier, for instance at 06:30. Thus, the same data can have different temporal expectations regarding when it can first be expected and when it reaches its deadline. For every temporal check, these deadlines need to be defined.
+
+\subsection*{Availability and accessibility}
+Data can be available but not accessible at the same time. The data and the complete report may exist and be correct; however, a user who requires it may not be able to access it. This can occur due to missing or incorrect access rights. Other scenarios are also possible, such as data being generated initially but not transferred at a later step of the data lineage. In such cases, the raw data is available at an earlier stage but not accessible at the final stage. This can be caused by errors in the pipeline as well as by system outages.
+
+\subsection*{Expectation values}
+An expectation check compares whether data is available in defined amounts, time windows, or other specified criteria. For example, at 09:00, nine tons of coal are expected to be in stock. This type of check includes both the expected amount and the defined time window.
+
+\subsection*{Business impact}
+When data is unavailable at the defined moment, this causes business disruptions. The severity of the disruption is proportional to the importance of the missing data and the duration of the delay.
+
+\subsection*{Checks on data lifecycle}
+When implementing \gls{DA} checks, the same question arises as with \gls{DQ}: at which stage it is most efficient to implement them. For data availability checks, the general rule is that earlier is better. If data is not available at the ingestion stage, all subsequent steps depending on it will also fail. When checks are performed on the storage layer after ingestion, the presence of data in the DWH can be verified. If an earlier data availability check was successful, an issue at the transport or DWH level can be identified. When moving further up to the processing and transformation layers and finally to the reporting and consumption layers, the check becomes highly visible, as a report is either present or not. However, this only allows identification of whether users experience an issue, not where it originates. Overall, earlier data availability checks yield better results for IT when identifying errors and correcting them.
